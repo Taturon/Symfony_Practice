@@ -24,3 +24,10 @@ api_post_edit:
     path:       /api/posts/{id}
     controller: App\Controller\BlogApiController::edit
     methods:    PUT
+
+contact:
+    path:       /contact
+    controller: 'App\Controller\DefaultController::contact'
+    condition:  "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
+    # expressions can also include configuration parameters:
+    # condition: "request.headers.get('User-Agent') matches '%app.allowed_browsers%'"
