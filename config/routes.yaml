@@ -15,6 +15,10 @@ blog_list:
     # controller class, you can skip the '::method_name' part:
     # controller: App\Controller\BlogController
 
+blog_show:
+    path:       /blog/{slug}
+    controller: App\Controller\BlogController::show
+
 api_post_show:
     path:       /api/posts/{id}
     controller: App\Controller\BlogApiController::show
