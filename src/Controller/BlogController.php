@@ -11,7 +11,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/{page<\d+>}", name="blog_list")
      */
-    public function list(int $page): Response
+    public function list(int $page = 1): Response
     {
         // ...
     }
