@@ -10,6 +10,8 @@ blog_list:
     path: /blogz/{page<\d+>}
     # the controller value has the format 'controller_class::method_name'
     controller: App\Controller\BlogController::list
+    defaults:
+        page: 1
     # if the action is implemented as the __invoke() method of the
     # controller class, you can skip the '::method_name' part:
     # controller: App\Controller\BlogController
