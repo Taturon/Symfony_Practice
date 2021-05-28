@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog/{page<\d+>?1}", name="blog_list")
+     * @Route("/blog/{page<\d+>?1}", name="blog_list", priority=2)
      */
     public function list(int $page): Response
     {
