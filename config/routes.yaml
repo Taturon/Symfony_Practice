@@ -6,6 +6,15 @@ app_lucky_number:
     path: /lucky/number
     controller: App\Controller\LuckyController::number
 
+article_search:
+  path:        /articles/{_locale}/search.{_format}
+  controller:  App\Controller\ArticleController::search
+  locale:      en
+  format:      html
+  requirements:
+      _locale: en|fr
+      _format: html|xml
+
 blog_list:
     path: /blog/{page<\d+>?1}
     controller: App\Controller\BlogController::list
