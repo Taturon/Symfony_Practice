@@ -6,10 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/blog", requirements={"_locale": "en|es|fr"}, name="blog_")
+ */
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog/{page}", name="blog_index", defaults={"page": 1, "title": "Hello world!"})
+     * @Route("/{_locale}", name="index")
      */
     public function index(int $page, string $title): Response
     {
@@ -17,7 +20,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/{page<\d+>?1}", name="blog_list", priority=2)
+     * @Route("/{page<\d+>?1}", name="blog_list", priority=2)
      */
     public function list(int $page): Response
     {
@@ -25,7 +28,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/{slug}", name="blog_show")
+     * @Route("/{_locale}/posts/{slug}", name="show")
      */
     public function show(BlogPost $post): Response
     {
