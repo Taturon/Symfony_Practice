@@ -20,14 +20,6 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/{page<\d+>?1}", name="blog_list", priority=2)
-     */
-    public function list(int $page): Response
-    {
-        // ...
-    }
-
-    /**
      * @Route("/{_locale}/posts/{slug}", name="show")
      */
     public function show(BlogPost $post): Response
