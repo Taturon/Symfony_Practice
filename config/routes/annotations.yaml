@@ -1,6 +1,10 @@
 controllers:
     resource: ../../src/Controller/
     type: annotation
+    prefix: '/blog'
+    name_prefix: 'blog_'
+    requirements:
+        _locale: 'en|es|fr'
 
 kernel:
     resource: ../../src/Kernel.php
