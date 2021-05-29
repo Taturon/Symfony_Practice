@@ -19,11 +19,8 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/{slug}", name="blog_show")
      */
-    public function show(string $slug): Response
+    public function show(BlogPost $post): Response
     {
-        // $slug will equal the dynamic part of the URL
-        // e.g. at /blog/yay-routing, then $slug='yay-routing'
-
         // ...
     }
 }
