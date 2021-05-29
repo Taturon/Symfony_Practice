@@ -13,6 +13,10 @@ class ArticleController extends AbstractController
      *     "/articles/{_locale}/search.{_format}",
      *     locale="en",
      *     format="html",
+     *     requirements={
+     *         "_locale": "en|fr",
+     *         "_format": "html|xml",
+     *     }
      * )
      */
     public function search(): Response
