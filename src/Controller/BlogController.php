@@ -12,6 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
+     * @Route("/", name="blog_list")
+     */
+    public function list(Request $request): Response
+    {
+        $routeName = $request->attributes->get('_route');
+        $routeParameters = $request->attributes->get('_route_params');
+        $allAttributes = $request->attributes->all();
+
+        // ...
+    }
+
+    /**
      * @Route("/{_locale}", name="index")
      */
     public function index(int $page, string $title): Response
