@@ -15,6 +15,13 @@ article_search:
       _locale: en|fr
       _format: html|xml
 
+blog_index:
+    path:       /blog/{page}
+    controller: App\Controller\BlogController::index
+    defaults:
+        page: 1
+        title: "Hello world!"
+
 blog_list:
     path: /blog/{page<\d+>?1}
     controller: App\Controller\BlogController::list
