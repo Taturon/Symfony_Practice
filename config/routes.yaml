@@ -50,3 +50,21 @@ share:
     controller: App\Controller\DefaultController::share
     requirements:
         token: .+
+
+doc_shortcut:
+    path: /doc
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+    defaults:
+        route: 'doc_page'
+        page: 'index'
+        version: 'current'
+        permanent: true
+        keepQueryParams: true
+        keepRequestMethod: true
+
+legacy_doc:
+    path: /legacy/doc
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+    defaults:
+        path: 'https://legacy.example.com/doc'
+        permanent: true
