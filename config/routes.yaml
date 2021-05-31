@@ -68,3 +68,8 @@ legacy_doc:
     defaults:
         path: 'https://legacy.example.com/doc'
         permanent: true
+
+mobile_homepage:
+    path:       /
+    host:       m.example.com
+    controller: App\Controller\MainController::mobileHomepage
