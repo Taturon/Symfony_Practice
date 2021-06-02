@@ -9,7 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="mobile_homepage", host="m.example.com")
+     * @Route(
+     *     "/",
+     *     name="mobile_homepage",
+     *     host="{subdomain}.example.com",
+     *     defaults={"subdomain"="m"},
+     *     requirements={"subdomain"="m|mobile"}
+     * )
      */
     public function mobileHomepage(): Response
     {
