@@ -73,3 +73,7 @@ mobile_homepage:
     path:       /
     host:       m.example.com
     controller: App\Controller\MainController::mobileHomepage
+
+homepage:
+    path:       /
+    controller: App\Controller\MainController::homepage
