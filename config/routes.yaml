@@ -71,8 +71,12 @@ legacy_doc:
 
 mobile_homepage:
     path:       /
-    host:       m.example.com
+    host:       "{subdomain}.example.com"
     controller: App\Controller\MainController::mobileHomepage
+    defaults:
+        subdomain: m
+    requirements:
+        subdomain: m|mobile
 
 homepage:
     path:       /
