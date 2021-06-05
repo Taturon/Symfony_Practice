@@ -81,3 +81,9 @@ mobile_homepage:
 homepage:
     path:       /
     controller: App\Controller\MainController::homepage
+
+about_us:
+    path:
+        en: /about-us
+        nl: /over-ons
+    controller: App\Controller\CompanyController::about
