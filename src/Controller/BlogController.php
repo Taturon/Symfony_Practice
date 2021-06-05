@@ -24,6 +24,7 @@ class BlogController extends AbstractController
         $userProfilePage = $this->generateUrl('user_profile', [
             'username' => $user->getUserIdentifier(),
         ]);
+        $signUpPage = $this->generateUrl('sign_up', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         // ...
     }
