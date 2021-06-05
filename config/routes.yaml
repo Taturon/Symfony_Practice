@@ -81,6 +81,7 @@ mobile_homepage:
 homepage:
     path:       /
     controller: App\Controller\MainController::homepage
+    stateless: true
 
 about_us:
     path:
