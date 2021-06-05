@@ -25,6 +25,7 @@ class BlogController extends AbstractController
             'username' => $user->getUserIdentifier(),
         ]);
         $signUpPage = $this->generateUrl('sign_up', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $signUpPageInDutch = $this->generateUrl('sign_up', ['_locale' => 'nl']);
 
         // ...
     }
