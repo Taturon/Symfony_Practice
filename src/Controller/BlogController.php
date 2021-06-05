@@ -20,6 +20,8 @@ class BlogController extends AbstractController
         $routeParameters = $request->attributes->get('_route_params');
         $allAttributes = $request->attributes->all();
 
+        $signUpPage = $this->generateUrl('sign_up');
+
         // ...
     }
 
