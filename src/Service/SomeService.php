@@ -21,5 +21,6 @@ class SomeService
         $userProfilePage = $this->router->generate('user_profile', [
             'username' => $user->getUserIdentifier(),
         ]);
+        $signUpPage = $this->router->generate('sign_up', [], UrlGeneratorInterface::ABSOLUTE_URL);
     }
 }
