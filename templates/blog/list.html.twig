@@ -1,3 +1,6 @@
+<script>
+    const route = "{{ path('blog_show', {slug: 'my-blog-post'})|escape('js') }}";
+</script>
 {% set route_name = app.request.attributes.get('_route') %}
 {% set route_parameters = app.request.attributes.get('_route_params') %}
 {% set all_attributes = app.request.attributes.all %}
