@@ -16,5 +16,6 @@ class SomeService
     public function someMethod()
     {
         // ...
+        $signUpPage = $this->router->generate('sign_up');
     }
 }
