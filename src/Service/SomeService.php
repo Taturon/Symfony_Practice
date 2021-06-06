@@ -22,5 +22,6 @@ class SomeService
             'username' => $user->getUserIdentifier(),
         ]);
         $signUpPage = $this->router->generate('sign_up', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $signUpPageInDutch = $this->router->generate('sign_up', ['_locale' => 'nl']);
     }
 }
