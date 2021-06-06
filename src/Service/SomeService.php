@@ -16,6 +16,10 @@ class SomeService
     public function someMethod()
     {
         // ...
+
         $signUpPage = $this->router->generate('sign_up');
+        $userProfilePage = $this->router->generate('user_profile', [
+            'username' => $user->getUserIdentifier(),
+        ]);
     }
 }
