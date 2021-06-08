@@ -88,3 +88,8 @@ about_us:
         en: /about-us
         nl: /over-ons
     controller: App\Controller\CompanyController::about
+
+login:
+    path:       /login
+    controller: App\Controller\SecurityController::login
+    schemes:    [https]
