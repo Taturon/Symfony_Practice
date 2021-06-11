@@ -25,4 +25,3 @@ services:
         tags: [controller.service_arguments]
         bind:
             $logger: '@monolog.logger.doctrine'
-            $projectDir: '%kernel.project_dir%'
