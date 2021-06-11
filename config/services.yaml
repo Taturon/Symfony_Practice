@@ -21,3 +21,8 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+    App\Controller\LuckyController:
+        tags: [controller.service_arguments]
+        bind:
+            $logger: '@monolog.logger.doctrine'
+            $projectDir: '%kernel.project_dir%'
