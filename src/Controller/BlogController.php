@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,5 +49,17 @@ class BlogController extends AbstractController
     public function show(BlogPost $post): Response
     {
         // ...
+    }
+
+    public function update(Request $request): Response
+    {
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash(
+                'notice',
+                'Your changes were saved!'
+            );
+            return $this->redirectToRoute(...);
+        }
+        return $this->render(...);
     }
 }
