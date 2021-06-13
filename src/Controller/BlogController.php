@@ -43,6 +43,7 @@ class BlogController extends AbstractController
         $filters = $session->get('filters', []);
 
         $request->isXmlHttpRequest();
+        $request->getPreferredLanguage(['en', 'fr']);
     }
 
     /**
