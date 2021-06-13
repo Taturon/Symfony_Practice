@@ -34,8 +34,11 @@ class BlogController extends AbstractController
     /**
      * @Route("/{_locale}", name="index")
      */
-    public function index(int $page, string $title): Response
+    public function index(int $page, string $title, SessionInterface $session): Response
     {
+        $session->set('foo', 'bar');
+        $foobar = $session->get('foobar');
+        $filters = $session->get('filters', []);
     }
 
     /**
