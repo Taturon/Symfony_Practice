@@ -46,6 +46,7 @@ class BlogController extends AbstractController
         $request->getPreferredLanguage(['en', 'fr']);
         $request->query->get('page');
         $request->request->get('page');
+        $request->server->get('HTTP_HOST');
     }
 
     /**
