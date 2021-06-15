@@ -47,6 +47,7 @@ class BlogController extends AbstractController
         $request->query->get('page');
         $request->request->get('page');
         $request->server->get('HTTP_HOST');
+        $request->files->get('foo');
     }
 
     /**
