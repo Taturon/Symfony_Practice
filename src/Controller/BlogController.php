@@ -48,6 +48,7 @@ class BlogController extends AbstractController
         $request->request->get('page');
         $request->server->get('HTTP_HOST');
         $request->files->get('foo');
+        $request->cookies->get('PHPSESSID');
     }
 
     /**
