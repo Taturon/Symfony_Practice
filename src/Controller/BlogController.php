@@ -53,6 +53,8 @@ class BlogController extends AbstractController
         $request->headers->get('content-type');
 
         $response = new Response('Hello '.$name, Response::HTTP_OK);
+        $response = new Response('<style> ... </style>');
+        $response->headers->set('Content-Type', 'text/css');
     }
 
     /**
