@@ -57,6 +57,8 @@ class BlogController extends AbstractController
         $response->headers->set('Content-Type', 'text/css');
 
         $contentsDir = $this->getParameter('kernel.project_dir').'/contents';
+
+        return $this->json(['username' => 'jane.doe']);
     }
 
     /**
