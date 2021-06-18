@@ -86,4 +86,9 @@ class BlogController extends AbstractController
         $file = new File('/path/to/some_file.pdf');
         return $this->file($file, 'custom_name.pdf');
     }
+
+    public function display(): Response
+    {
+        return $this->file('invoice_3241.pdf', 'my_invoice.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
+    }
 }
