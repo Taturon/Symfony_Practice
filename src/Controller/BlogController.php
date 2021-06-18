@@ -83,6 +83,7 @@ class BlogController extends AbstractController
 
     public function download(): Response
     {
-        return $this->file('/path/to/some_file.pdf');
+        $file = new File('/path/to/some_file.pdf');
+        return $this->file($file);
     }
 }
