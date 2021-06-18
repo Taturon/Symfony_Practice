@@ -80,4 +80,9 @@ class BlogController extends AbstractController
         }
         return $this->render(...);
     }
+
+    public function download(): Response
+    {
+        return $this->file('/path/to/some_file.pdf');
+    }
 }
