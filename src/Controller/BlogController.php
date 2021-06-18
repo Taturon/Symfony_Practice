@@ -51,6 +51,8 @@ class BlogController extends AbstractController
         $request->cookies->get('PHPSESSID');
         $request->headers->get('host');
         $request->headers->get('content-type');
+
+        $response = new Response('Hello '.$name, Response::HTTP_OK);
     }
 
     /**
