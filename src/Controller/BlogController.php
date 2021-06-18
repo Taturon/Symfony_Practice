@@ -55,6 +55,8 @@ class BlogController extends AbstractController
         $response = new Response('Hello '.$name, Response::HTTP_OK);
         $response = new Response('<style> ... </style>');
         $response->headers->set('Content-Type', 'text/css');
+
+        $contentsDir = $this->getParameter('kernel.project_dir').'/contents';
     }
 
     /**
