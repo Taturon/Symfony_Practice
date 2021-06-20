@@ -5,6 +5,8 @@
 {% set route_parameters = app.request.attributes.get('_route_params') %}
 {% set all_attributes = app.request.attributes.all %}
 
+<img src="{{ asset('images/logo.png') }}" alt="Symfony!"/>
+
 <a href="{{ path('blog_index') }}">Homepage</a>
 
 {% for post in blog_posts %}
