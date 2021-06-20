@@ -7,5 +7,13 @@
 
 <a href="{{ path('blog_index') }}">Homepage</a>
 
+{% for post in blog_posts %}
+    <h1>
+        <a href="{{ path('blog_post', {slug: post.slug}) }}">{{ post.title }}</a>
+    </h1>
+
+    <p>{{ post.excerpt }}</p>
+{% endfor %}
+
 <p>{{ user.name }} added this comment on {{ comment.publishedAt|date }}</p>
 
