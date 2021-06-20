@@ -5,4 +5,7 @@
 {% set route_parameters = app.request.attributes.get('_route_params') %}
 {% set all_attributes = app.request.attributes.all %}
 
+<a href="{{ path('blog_index') }}">Homepage</a>
+
 <p>{{ user.name }} added this comment on {{ comment.publishedAt|date }}</p>
+
