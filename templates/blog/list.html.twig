@@ -5,7 +5,7 @@
 {% set route_parameters = app.request.attributes.get('_route_params') %}
 {% set all_attributes = app.request.attributes.all %}
 
-<img src="{{ asset('images/logo.png') }}" alt="Symfony!"/>
+<img src="{{ absolute_url(asset('images/logo.png')) }}" alt="Symfony!"/>
 <link href="{{ asset('css/blog.css') }}" rel="stylesheet"/>
 <script src="{{ asset('bundles/acme/js/loader.js') }}"></script>
 
