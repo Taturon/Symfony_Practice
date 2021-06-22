@@ -22,3 +22,8 @@
 
 <p>{{ user.name }} added this comment on {{ comment.publishedAt|date }}</p>
 
+<p>Username: {{ app.user.username ?? 'Anonymous user' }}</p>
+{% if app.debug %}
+    <p>Request method: {{ app.request.method }}</p>
+    <p>Application Environment: {{ app.environment }}</p>
+{% endif %}
