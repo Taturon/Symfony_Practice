@@ -9,9 +9,11 @@ class ProductController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('product/index.html.twig', [
+        $contents = $this->renderView('product/index.html.twig', [
             'category' => '...',
             'promotions' => ['...', '...'],
         ]);
+
+        return new Response($contents);
     }
 }
