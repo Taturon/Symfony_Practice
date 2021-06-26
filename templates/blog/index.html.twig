@@ -1,7 +1,7 @@
 
 {# ... #}
 <div class="user-profile">
-    {{ include('blog/_user_profile.html.twig') }}
+    {{ include('blog/_user_profile.html.twig', {user: blog_post.author}) }}
     <img src="{{ user.profileImageUrl }}" alt="{{ user.fullName }}"/>
     <p>{{ user.fullName }} - {{ user.email }}</p>
 </div>
