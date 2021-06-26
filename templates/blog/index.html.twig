@@ -1,5 +1,8 @@
+
 {# ... #}
 <div class="user-profile">
+    {{ include('blog/_user_profile.html.twig') }}
     <img src="{{ user.profileImageUrl }}" alt="{{ user.fullName }}"/>
     <p>{{ user.fullName }} - {{ user.email }}</p>
 </div>
+
