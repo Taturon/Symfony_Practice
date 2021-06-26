@@ -3,13 +3,19 @@
 namespace App\Service;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Twig\Environment;
 
 class SomeService
 {
+    private $twig;
+
     private $router;
 
-    public function __construct(UrlGeneratorInterface $router)
+    public function __construct(
+        Environment $twig
+        UrlGeneratorInterface $router)
     {
+        $this->view = $twig;
         $this->router = $router;
     }
 
@@ -23,5 +29,10 @@ class SomeService
         ]);
         $signUpPage = $this->router->generate('sign_up', [], UrlGeneratorInterface::ABSOLUTE_URL);
         $signUpPageInDutch = $this->router->generate('sign_up', ['_locale' => 'nl']);
+
+        $htmlContents = $this->twig->render('product/index.html.twig', [
+            'category' => '...',
+            'promotions' => ['...', '...'],
+        ]);
     }
 }
