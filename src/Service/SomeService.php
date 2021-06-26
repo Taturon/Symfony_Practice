@@ -35,5 +35,9 @@ class SomeService
             'category' => '...',
             'promotions' => ['...', '...'],
         ]);
+
+        if ($loader->exists('theme/layout_responsive.html.twig')) {
+            // the template exists, do something
+        }
     }
 }
