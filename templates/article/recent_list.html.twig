@@ -1,0 +1,9 @@
+{# templates/article/recent_list.html.twig #}
+{% dump articles %}
+
+{% for article in articles %}
+    {{ dump(article) }}
+    <a href="/article/{{ article.slug }}">
+        {{ article.title }}
+    </a>
+{% endfor %}
