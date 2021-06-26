@@ -16,6 +16,7 @@ class SomeService
         UrlGeneratorInterface $router)
     {
         $this->view = $twig;
+        $loader = $twig->getLoader();
         $this->router = $router;
     }
 
