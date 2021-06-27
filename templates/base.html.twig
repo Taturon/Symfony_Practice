@@ -17,6 +17,9 @@
         <div id="sidebar">
             {{ render(path('latest_articles', {max: 3})) }}
             {{ render(url('latest_articles', {max: 3})) }}
+            {{ render(controller(
+                'App\\Controller\\BlogController::recentArticles', {max: 3}
+            )) }}
         </div>
 
         {# read and display just one flash message type #}
