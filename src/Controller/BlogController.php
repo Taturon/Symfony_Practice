@@ -91,4 +91,13 @@ class BlogController extends AbstractController
     {
         return $this->file('invoice_3241.pdf', 'my_invoice.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
     }
+
+    public function recentArticles(int $max = 3): Response
+    {
+        $articles = ['...', '...', '...'];
+
+        return $this->render('blog/_recent_articles.html.twig', [
+            'articles' => $articles
+        ]);
+    }
 }
