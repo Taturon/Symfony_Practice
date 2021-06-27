@@ -14,6 +14,10 @@
         {% endblock %}
     </head>
     <body>
+        <div id="sidebar">
+            {{ render(path('latest_articles', {max: 3})) }}
+        </div>
+
         {# read and display just one flash message type #}
         {% for message in app.flashes('notice') %}
             <div class="flash-notice">
