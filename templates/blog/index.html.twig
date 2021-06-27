@@ -1,8 +1,10 @@
+{% extends 'blog/layout.html.twig' %}
 
-{# ... #}
-<div class="user-profile">
-    {{ include('blog/_user_profile.html.twig', {user: blog_post.author}) }}
-    <img src="{{ user.profileImageUrl }}" alt="{{ user.fullName }}"/>
-    <p>{{ user.fullName }} - {{ user.email }}</p>
-</div>
+{% block title %}Blog Index{% endblock %}
 
+{% block page_contents %}
+    {% for article in articles %}
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.body }}</p>
+    {% endfor %}
+{% endblock %}
