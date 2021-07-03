@@ -10,14 +10,14 @@ imports:
     - { resource: 'my_other_config_file.xml', ignore_errors: true }
 
 parameters:
-    app.admin_email: 'something@example.com'
-    app.enable_v2_protocol: true
-    app.supported_locales: ['en', 'es', 'fr']
-    app.some_parameter: !!binary VGhpcyBpcyBhIEJlbGwgY2hhciAH
-    app.some_constant: !php/const GLOBAL_CONSTANT
-    app.another_constant: !php/const App\Entity\BlogPost::MAX_ITEMS
+    app.admin_email:               'something@example.com'
+    app.enable_v2_protocol:        true
+    app.supported_locales:         ['en', 'es', 'fr']
+    app.some_parameter:            !!binary VGhpcyBpcyBhIEJlbGwgY2hhciAH
+    app.some_constant:             !php/const GLOBAL_CONSTANT
+    app.another_constant:          !php/const App\Entity\BlogPost::MAX_ITEMS
     router.request_context.scheme: 'https'
-    asset.request_context.secure: true
+    asset.request_context.secure:  true
 
 services:
     _defaults:
