@@ -1,0 +1,2 @@
+some_package:
+    email_address: '%app.admin_email%'
