@@ -16,6 +16,7 @@ parameters:
     app.some_parameter:            !!binary VGhpcyBpcyBhIEJlbGwgY2hhciAH
     app.some_constant:             !php/const GLOBAL_CONSTANT
     app.another_constant:          !php/const App\Entity\BlogPost::MAX_ITEMS
+    url_pattern: 'https://symfony.com/?foo=%%s&amp;bar=%%d'
     router.request_context.scheme: 'https'
     asset.request_context.secure:  true
 
