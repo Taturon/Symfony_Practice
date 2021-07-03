@@ -11,6 +11,7 @@ class UserController extends AbstractController
     public function notifications(): Response
     {
         $projectDir = $this->getParameter('kernel.project_dir');
+        $adminEmail = $this->getParameter('app.admin_email');
 
         $userFirstName = '...';
         $userNotifications = ['...', '...'];
