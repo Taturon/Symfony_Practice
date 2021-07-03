@@ -13,6 +13,7 @@ parameters:
     app.admin_email: 'something@example.com'
     app.enable_v2_protocol: true
     app.supported_locales: ['en', 'es', 'fr']
+    app.some_parameter: !!binary VGhpcyBpcyBhIEJlbGwgY2hhciAH
     router.request_context.scheme: 'https'
     asset.request_context.secure: true
 
