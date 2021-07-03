@@ -11,6 +11,7 @@ imports:
 
 parameters:
     app.admin_email: 'something@example.com'
+    app.enable_v2_protocol: true
     router.request_context.scheme: 'https'
     asset.request_context.secure: true
 
