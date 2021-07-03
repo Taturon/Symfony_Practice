@@ -10,6 +10,7 @@ imports:
     - { resource: 'my_other_config_file.xml', ignore_errors: true }
 
 parameters:
+    app.admin_email: 'something@example.com'
     router.request_context.scheme: 'https'
     asset.request_context.secure: true
 
