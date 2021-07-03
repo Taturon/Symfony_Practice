@@ -7,6 +7,7 @@ imports:
     - { resource: 'legacy_config.php' }
     - { resource: '/etc/myapp/*.yaml' }
     - { resource: 'my_config_file.xml', ignore_errors: not_found }
+    - { resource: 'my_other_config_file.xml', ignore_errors: true }
 
 parameters:
     router.request_context.scheme: 'https'
