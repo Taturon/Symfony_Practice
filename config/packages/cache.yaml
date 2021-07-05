@@ -1,4 +1,5 @@
 framework:
     cache:
+        directory: '%kernel.cache_dir%/pools'
         app: cache.adapter.filesystem
         system: cache.adapter.system
