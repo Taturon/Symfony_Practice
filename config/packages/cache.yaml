@@ -1,5 +1,6 @@
 framework:
     cache:
         directory: '%kernel.cache_dir%/pools'
+        default_doctrine_provider: 'app.doctrine_cache'
         app: cache.adapter.filesystem
         system: cache.adapter.system
