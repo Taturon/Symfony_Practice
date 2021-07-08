@@ -3,5 +3,6 @@ framework:
         directory: '%kernel.cache_dir%/pools'
         default_doctrine_provider: 'app.doctrine_cache'
         default_psr6_provider: 'app.my_psr6_service'
+        default_redis_provider: 'redis://localhost'
         app: cache.adapter.filesystem
         system: cache.adapter.system
