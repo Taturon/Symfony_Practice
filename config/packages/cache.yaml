@@ -11,3 +11,5 @@ framework:
         pools:
             custom_thing.cache:
                 adapter: cache.app
+            my_cache_pool:
+                adapter: cache.adapter.filesystem
