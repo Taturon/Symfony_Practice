@@ -13,3 +13,5 @@ framework:
                 adapter: cache.app
             my_cache_pool:
                 adapter: cache.adapter.filesystem
+            acme.cache:
+                adapter: cache.adapter.memcached
