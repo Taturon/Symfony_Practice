@@ -8,3 +8,6 @@ framework:
         default_pdo_provider: 'doctrine.dbal.default_connection'
         app: cache.adapter.filesystem
         system: cache.adapter.system
+        pools:
+            custom_thing.cache:
+                adapter: cache.app
