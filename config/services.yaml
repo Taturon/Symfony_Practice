@@ -40,3 +40,7 @@ services:
         tags: [controller.service_arguments]
         bind:
             $logger: '@monolog.logger.doctrine'
+    app.cache.adapter.redis:
+        parent: 'cache.adapter.redis'
+        tags:
+            - { name: 'cache.pool', namespace: 'my_custom_namespace' }
