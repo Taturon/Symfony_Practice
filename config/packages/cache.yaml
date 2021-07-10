@@ -18,3 +18,6 @@ framework:
             foobar.cache:
                 adapter: cache.adapter.memcached
                 provider: 'memcached://user:password@example.com'
+            short_cache:
+                adapter: foobar.cache
+                default_lifetime: 60
