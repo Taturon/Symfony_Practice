@@ -35,4 +35,16 @@ class CreateUserCommand extends Command
         // or missing arguments (it's equivalent to returning int(2))
         // return Command::INVALID
     }
+
+    protected function configure(): void
+    {
+        $this
+            // the short description shown while running "php bin/console list"
+            ->setDescription('Creates a new user.')
+
+            // the full command description shown when running the command with
+            // the "--help" option
+            ->setHelp('This command allows you to create a user...')
+        ;
+    }
 }
