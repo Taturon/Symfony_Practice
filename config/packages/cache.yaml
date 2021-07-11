@@ -2,8 +2,5 @@ framework:
     cache:
         pools:
             my_cache_pool:
-                default_lifetime: 31536000  # One year
-                adapters:
-                  - cache.adapter.array
-                  - cache.adapter.apcu
-                  - {name: cache.adapter.redis, provider: 'redis://user:password@example.com'}
+                adapter: cache.adapter.redis
+                tags: true
