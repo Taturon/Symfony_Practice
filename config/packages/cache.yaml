@@ -3,4 +3,6 @@ framework:
         pools:
             my_cache_pool:
                 adapter: cache.adapter.redis
-                tags: true
+                tags: tag_pool
+            tag_pool:
+                adapter: cache.adapter.apcu
