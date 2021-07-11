@@ -1,30 +1,9 @@
 framework:
     cache:
-        directory: '%kernel.cache_dir%/pools'
-        default_doctrine_provider: 'app.doctrine_cache'
-        default_psr6_provider: 'app.my_psr6_service'
-        default_redis_provider: 'redis://localhost'
-        default_memcached_provider: 'memcached://localhost'
-        default_pdo_provider: 'doctrine.dbal.default_connection'
-        app: cache.adapter.filesystem
-        system: cache.adapter.system
         pools:
-            custom_thing.cache:
-                adapter: cache.app
             my_cache_pool:
-                adapter: cache.adapter.filesystem
-            acme.cache:
-                adapter: cache.adapter.memcached
-            foobar.cache:
-                adapter: cache.adapter.memcached
-                provider: 'memcached://user:password@example.com'
-            short_cache:
-                adapter: foobar.cache
-                default_lifetime: 60
-services:
-    app.my_custom_redis_provider:
-        class: \Redis
-        factory: ['Symfony\Component\Cache\Adapter\RedisAdapter', 'createConnection']
-        arguments:
-            - 'redis://localhost'
-            - { retry_interval: 2, timeout: 10 }
+                default_lifetime: 31536000  # One year
+                adapters:
+                  - cache.adapter.array
+                  - cache.adapter.apcu
+                  - {name: cache.adapter.redis, provider: 'redis://user:password@example.com'}
