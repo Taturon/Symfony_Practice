@@ -35,4 +35,19 @@ class CreateUserCommand extends Command
             ->addArgument('password', $this->requirePassword ? InputArgument::REQUIRED : InputArgument::OPTIONAL, 'User password')
         ;
     }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $output->writeln([
+            'User Creator',
+            '============',
+            '',
+        ]);
+        $output->writeln($this->someMethod());
+        $output->writeln('Whoa!');
+        $output->write('You are about to ');
+        $output->write('create a user.');
+
+        return Command::SUCCESS;
+    }
 }
