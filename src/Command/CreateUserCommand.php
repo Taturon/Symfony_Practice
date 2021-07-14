@@ -19,7 +19,8 @@ class CreateUserCommand extends Command
 
     protected function configure(): void
     {
-        // ...
+        $this
+        ->addArgument('username', InputArgument::REQUIRED, 'The username of the user.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
