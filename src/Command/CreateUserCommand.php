@@ -25,6 +25,14 @@ class CreateUserCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $output->writeln([
+            'User Creator',
+            '============',
+            '',
+        ]);
+
+        $output->writeln('Username: '.$input->getArgument('username'));
+
         return Command::SUCCESS;
     }
 
