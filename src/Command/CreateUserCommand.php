@@ -49,7 +49,7 @@ class CreateUserCommand extends Command
         $output->writeln('User successfully generated!');
 
         $output->writeln('<info>foo</info>');
-
+        $output->writeln('<comment>foo</comment>');
 
         return Command::SUCCESS;
     }
