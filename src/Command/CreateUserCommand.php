@@ -4,6 +4,7 @@ namespace App\Command;
 
 use App\Service\UserManager;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -34,6 +35,14 @@ class CreateUserCommand extends Command
             '============',
             '',
         ]);
+
+        $command = $this->getApplication()->find('demo:greet');
+        $arguments = [
+            'name'    => 'Fabien',
+            '--yell'  => true,
+        ];
+        $greetInput = new ArrayInput($arguments);
+        $returnCode = $command->run($greetInput, $output);
 
         $output->writeln('Username: '.$input->getArgument('username'));
         $this->userManager->create($input->getArgument('username'));
