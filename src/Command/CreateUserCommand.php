@@ -50,6 +50,7 @@ class CreateUserCommand extends Command
 
         $output->writeln('<info>foo</info>');
         $output->writeln('<comment>foo</comment>');
+        $output->writeln('<question>foo</question>');
 
         return Command::SUCCESS;
     }
