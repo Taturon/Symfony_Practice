@@ -2,6 +2,7 @@
 // src/Command/CreateUserCommand.php
 namespace App\Command;
 
+use App\Service\UserManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,8 +11,11 @@ class CreateUserCommand extends Command
 {
     protected static $defaultName = 'app:create-user';
 
-    public function __construct(bool $requirePassword = false)
+    private $userManager;
+
+    public function __construct(UserManager $userManager, bool $requirePassword = false)
     {
+        $this->userManager = $userManager;
         $this->requirePassword = $requirePassword;
 
         parent::__construct();
