@@ -48,6 +48,9 @@ class CreateUserCommand extends Command
         $this->userManager->create($input->getArgument('username'));
         $output->writeln('User successfully generated!');
 
+        $output->writeln('<info>foo</info>');
+
+
         return Command::SUCCESS;
     }
 
