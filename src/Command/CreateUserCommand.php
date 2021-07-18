@@ -7,6 +7,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
 class CreateUserCommand extends Command
 {
@@ -52,6 +53,10 @@ class CreateUserCommand extends Command
         $output->writeln('<comment>foo</comment>');
         $output->writeln('<question>foo</question>');
         $output->writeln('<error>foo</error>');
+
+        $outputStyle = new OutputFormatterStyle('red', '#ff0', ['bold', 'blink']);
+        $output->getFormatter()->setStyle('fire', $outputStyle);
+        $output->writeln('<fire>foo</>');
 
         return Command::SUCCESS;
     }
