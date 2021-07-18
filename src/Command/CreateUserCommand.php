@@ -62,7 +62,7 @@ class CreateUserCommand extends Command
         $output->writeln('<fg=#c0392b>foo</>');
         $output->writeln('<fg=black;bg=cyan>foo</>');
         $output->writeln('<bg=yellow;options=bold>foo</>');
-
+        $output->writeln('<options=bold,underscore>foo</>');
 
         return Command::SUCCESS;
     }
