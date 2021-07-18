@@ -58,6 +58,8 @@ class CreateUserCommand extends Command
         $output->getFormatter()->setStyle('fire', $outputStyle);
         $output->writeln('<fire>foo</>');
 
+        $output->writeln('<fg=green>foo</>');
+
         return Command::SUCCESS;
     }
 
