@@ -64,6 +64,8 @@ class CreateUserCommand extends Command
         $output->writeln('<bg=yellow;options=bold>foo</>');
         $output->writeln('<options=bold,underscore>foo</>');
 
+        $output->writeln('<href=https://symfony.com>Symfony Homepage</>');
+
         return Command::SUCCESS;
     }
 
