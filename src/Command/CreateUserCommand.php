@@ -59,6 +59,7 @@ class CreateUserCommand extends Command
         $output->writeln('<fire>foo</>');
 
         $output->writeln('<fg=green>foo</>');
+        $output->writeln('<fg=#c0392b>foo</>');
 
         return Command::SUCCESS;
     }
