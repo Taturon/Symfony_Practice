@@ -40,6 +40,9 @@ services:
         tags: [controller.service_arguments]
         bind:
             $logger: '@monolog.logger.doctrine'
+    App\Command\SunshineCommand:
+        tags:
+            - { name: 'console.command', command: 'app:sunshine' }
     app.cache.adapter.redis:
         parent: 'cache.adapter.redis'
         tags:
