@@ -35,6 +35,10 @@ class GreetCommand extends Command
             $text .= ' '.implode(', ', $names);
         }
 
+        for ($i = 0; $i < $input->getOption('iterations'); $i++) {
+            $output->writeln($text);
+        }
+
         $output->writeln($text.'!');
 
         return Command::SUCCESS;
