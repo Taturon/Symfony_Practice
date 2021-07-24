@@ -22,11 +22,9 @@ class GreetCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $text = 'Hi '.$input->getArgument('name');
-
-        $lastName = $input->getArgument('last_name');
-        if ($lastName) {
-            $text .= ' '.$lastName;
+        $names = $input->getArgument('names');
+        if (count($names) > 0) {
+            $text .= ' '.implode(', ', $names);
         }
 
         $output->writeln($text.'!');
