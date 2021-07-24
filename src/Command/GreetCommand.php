@@ -20,7 +20,7 @@ class GreetCommand extends Command
             )
             ->addOption(
                 'iterations',
-                null,
+                'i',
                 InputOption::VALUE_REQUIRED,
                 'How many times should the message be printed?',
                 1
