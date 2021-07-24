@@ -12,8 +12,11 @@ class GreetCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('name', InputArgument::REQUIRED, 'Who do you want to greet?')
-            ->addArgument('last_name', InputArgument::OPTIONAL, 'Your last name?')
+            ->addArgument(
+                'names',
+                InputArgument::IS_ARRAY,
+                'Who do you want to greet (separate multiple names with a space)?'
+            )
         ;
     }
 
