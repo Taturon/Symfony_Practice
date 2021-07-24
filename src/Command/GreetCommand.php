@@ -14,7 +14,7 @@ class GreetCommand extends Command
         $this
             ->addArgument(
                 'names',
-                InputArgument::IS_ARRAY,
+                InputArgument::IS_ARRAY | InputArgument::REQUIRED,
                 'Who do you want to greet (separate multiple names with a space)?'
             )
         ;
