@@ -25,6 +25,13 @@ class GreetCommand extends Command
                 'How many times should the message be printed?',
                 1
             )
+            ->addOption(
+                'colors',
+                null,
+                InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+                'Which colors do you like?',
+                ['blue', 'red']
+            )
         ;
     }
 
