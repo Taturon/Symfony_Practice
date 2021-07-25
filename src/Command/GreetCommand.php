@@ -53,6 +53,22 @@ class GreetCommand extends Command
             $output->writeln($text);
         }
 
+        $optionValue = $input->getOption('yell');
+        if (false === $optionValue) {
+            $yell = false;
+            $yellLouder = false;
+        } elseif (null === $optionValue) {
+            $yell = true;
+            $yellLouder = false;
+        } else {
+            $yell = true;
+            if ('louder' === $optionValue) {
+                $yellLouder = true;
+            } else {
+                $yellLouder = false;
+            }
+        }
+
         $output->writeln($text.'!');
 
         return Command::SUCCESS;
