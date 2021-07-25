@@ -37,6 +37,7 @@ class GreetCommand extends Command
                 null,
                 InputOption::VALUE_OPTIONAL,
                 'Should I yell while greeting?'
+                false
             )
         ;
     }
