@@ -2,6 +2,9 @@
 
 namespace App\Command;
 
+use App\Command\HeavyCommand;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\CommandLoader\FactoryCommandLoader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -58,6 +61,14 @@ class GreetCommand extends Command
         $yellLouder = ($optionValue === 'louder');
 
         $output->writeln($text.'!');
+
+        $commandLoader = new FactoryCommandLoader([
+            'app:heavy' => function () { return new HeavyCommand(); },
+        ]);
+
+        $application = new Application();
+        $application->setCommandLoader($commandLoader);
+        $application->run();
 
         return Command::SUCCESS;
     }
