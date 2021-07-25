@@ -2,7 +2,8 @@
 
 namespace App\Command;
 
-use Symfony\Component\Console\CommandLoader\FactoryCommandLoader;
+use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -60,9 +61,12 @@ class GreetCommand extends Command
 
         $output->writeln($text.'!');
 
-        $commandLoader = new FactoryCommandLoader([
-            'app:foo' => function () { return new FooCommand(); },
-            'app:bar' => [BarCommand::class, 'create'],
+        $containerBuilder = new ContainerBuilder();
+        $containerBuilder->register(FooCommand::class, FooCommand::class);
+        $containerBuilder->compile();
+
+        $commandLoader = new ContainerCommandLoader($containerBuilder, [
+            'app:foo' => FooCommand::class,
         ]);
 
         return Command::SUCCESS;
