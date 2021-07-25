@@ -32,6 +32,12 @@ class GreetCommand extends Command
                 'Which colors do you like?',
                 ['blue', 'red']
             )
+            ->addOption(
+                'yell',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Should I yell while greeting?'
+            )
         ;
     }
 
