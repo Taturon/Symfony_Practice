@@ -2,8 +2,6 @@
 
 namespace App\Command;
 
-use App\Command\HeavyCommand;
-use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\FactoryCommandLoader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -63,12 +61,9 @@ class GreetCommand extends Command
         $output->writeln($text.'!');
 
         $commandLoader = new FactoryCommandLoader([
-            'app:heavy' => function () { return new HeavyCommand(); },
+            'app:foo' => function () { return new FooCommand(); },
+            'app:bar' => [BarCommand::class, 'create'],
         ]);
-
-        $application = new Application();
-        $application->setCommandLoader($commandLoader);
-        $application->run();
 
         return Command::SUCCESS;
     }
