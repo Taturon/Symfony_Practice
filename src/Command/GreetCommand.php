@@ -46,6 +46,12 @@ class GreetCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $output->writeln([
+            '<info>Lorem Ipsum Dolor Sit Amet</>',
+            '<info>==========================</>',
+            '',
+        ]);
+
         $names = $input->getArgument('names');
         if (count($names) > 0) {
             $text .= ' '.implode(', ', $names);
