@@ -49,6 +49,8 @@ class GreetCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $io->title('Lorem Ipsum Dolor Sit Amet');
+        $io->section('Adding a User');
+        $io->section('Generating the Password');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
