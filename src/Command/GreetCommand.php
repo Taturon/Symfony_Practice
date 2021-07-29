@@ -51,6 +51,12 @@ class GreetCommand extends Command
         $io->title('Lorem Ipsum Dolor Sit Amet');
         $io->section('Adding a User');
         $io->section('Generating the Password');
+        $io->text('Lorem ipsum dolor sit amet');
+        $io->text([
+            'Lorem ipsum dolor sit amet',
+            'Consectetur adipiscing elit',
+            'Aenean sit amet arcu vitae sem faucibus porta',
+        ]);
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
