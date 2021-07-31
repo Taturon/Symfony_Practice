@@ -93,6 +93,7 @@ class GreetCommand extends Command
             'Consectetur adipiscing elit',
             'Aenean sit amet arcu vitae sem faucibus porta',
         ]);
+        $io->caution('Lorem ipsum dolor sit amet');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
