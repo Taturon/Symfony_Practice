@@ -70,6 +70,14 @@ class GreetCommand extends Command
                 ['Cell 3-1', 'Cell 3-2'],
             ]
         );
+        $io->horizontalTable(
+            ['Header 1', 'Header 2'],
+            [
+                ['Cell 1-1', 'Cell 1-2'],
+                ['Cell 2-1', 'Cell 2-2'],
+                ['Cell 3-1', 'Cell 3-2'],
+            ]
+        );
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
