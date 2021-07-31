@@ -78,6 +78,15 @@ class GreetCommand extends Command
                 ['Cell 3-1', 'Cell 3-2'],
             ]
         );
+        $io->definitionList(
+            'This is a title',
+            ['foo1' => 'bar1'],
+            ['foo2' => 'bar2'],
+            ['foo3' => 'bar3'],
+            new TableSeparator(),
+            'This is another title',
+            ['foo4' => 'bar4']
+        );
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
