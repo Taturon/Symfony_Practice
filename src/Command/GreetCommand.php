@@ -87,7 +87,7 @@ class GreetCommand extends Command
             'This is another title',
             ['foo4' => 'bar4']
         );
-        $io->newLine();
+        $io->newLine(3);
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
