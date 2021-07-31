@@ -99,7 +99,7 @@ class GreetCommand extends Command
             'Aenean sit amet arcu vitae sem faucibus porta',
         ]));
         $io->progressStart(100);
-        $io->progressAdvance();
+        $io->progressAdvance(10);
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
