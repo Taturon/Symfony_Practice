@@ -57,6 +57,11 @@ class GreetCommand extends Command
             'Consectetur adipiscing elit',
             'Aenean sit amet arcu vitae sem faucibus porta',
         ]);
+        $io->listing([
+            'Element #1 Lorem ipsum dolor sit amet',
+            'Element #2 Lorem ipsum dolor sit amet',
+            'Element #3 Lorem ipsum dolor sit amet',
+        ]);
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
