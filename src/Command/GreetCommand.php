@@ -88,6 +88,7 @@ class GreetCommand extends Command
             ['foo4' => 'bar4']
         );
         $io->newLine(3);
+        $io->note('Lorem ipsum dolor sit amet');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
