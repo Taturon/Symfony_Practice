@@ -101,7 +101,7 @@ class GreetCommand extends Command
         $io->progressStart(100);
         $io->progressAdvance(10);
         $io->progressFinish();
-        $io->ask('What is your name?');
+        $io->ask('Where are you from?', 'United States');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
