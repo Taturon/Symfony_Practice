@@ -101,7 +101,12 @@ class GreetCommand extends Command
         $io->progressStart(100);
         $io->progressAdvance(10);
         $io->progressFinish();
-        $io->ask('Where are you from?', 'United States');
+        $io->ask('Number of workers to start', 1, function ($number) {
+            if (!is_numeric($number)) {
+                throw new \RuntimeException('You must type a number.');
+            }
+            return (int) $number;
+        });
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
