@@ -107,6 +107,7 @@ class GreetCommand extends Command
             }
             return (int) $number;
         });
+        $io->askHidden('What is your password?');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
