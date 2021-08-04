@@ -107,7 +107,12 @@ class GreetCommand extends Command
             }
             return (int) $number;
         });
-        $io->askHidden('What is your password?');
+        $io->askHidden('What is your password?', function ($password) {
+            if (empty($password)) {
+                throw new \RuntimeException('Password cannot be empty.');
+            }
+            return $password;
+        });
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
