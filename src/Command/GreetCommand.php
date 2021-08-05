@@ -113,6 +113,7 @@ class GreetCommand extends Command
             }
             return $password;
         });
+        $io->confirm('Restart the web server?');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
