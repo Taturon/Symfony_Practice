@@ -115,7 +115,10 @@ class GreetCommand extends Command
         });
         $io->confirm('Restart the web server?', true);
         $io->choice('Select the queue to analyze', ['queue1', 'queue2', 'queue3'], 'queue1');
-        $io->success('Lorem ipsum dolor sit amet');
+        $io->success([
+            'Lorem ipsum dolor sit amet',
+            'Consectetur adipiscing elit',
+        ]);
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
