@@ -114,6 +114,7 @@ class GreetCommand extends Command
             return $password;
         });
         $io->confirm('Restart the web server?', true);
+        $io->choice('Select the queue to analyze', ['queue1', 'queue2', 'queue3']);
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
