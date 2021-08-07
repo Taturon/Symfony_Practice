@@ -132,6 +132,7 @@ class GreetCommand extends Command
             'Consectetur adipiscing elit',
         ]);
         $io->write('Reusable information');
+        $io->getErrorStyle()->warning('Debugging information or errors');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
