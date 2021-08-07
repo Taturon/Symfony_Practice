@@ -47,7 +47,7 @@ class GreetCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new CustomStyle($input, $output);
         $io->title('Lorem Ipsum Dolor Sit Amet');
         $io->section('Adding a User');
         $io->section('Generating the Password');
