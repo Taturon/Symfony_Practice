@@ -131,6 +131,7 @@ class GreetCommand extends Command
             'Lorem ipsum dolor sit amet',
             'Consectetur adipiscing elit',
         ]);
+        $io->write('Reusable information');
 
         $names = $input->getArgument('names');
         if (count($names) > 0) {
