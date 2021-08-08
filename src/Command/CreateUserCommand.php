@@ -31,42 +31,18 @@ class CreateUserCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $user = new User(...);
+
         $output->writeln([
-            'User Creator',
-            '============',
-            '',
+            'Username: '.$input->getArgument('username'),
+            'Password: '.$input->getArgument('password'),
         ]);
 
-        $command = $this->getApplication()->find('demo:greet');
-        $arguments = [
-            'name'    => 'Fabien',
-            '--yell'  => true,
-        ];
-        $greetInput = new ArrayInput($arguments);
-        $returnCode = $command->run($greetInput, $output);
+        if ($output->isVerbose()) {
+            $output->writeln('User class: '.get_class($user));
+        }
 
-        $output->writeln('Username: '.$input->getArgument('username'));
-        $this->userManager->create($input->getArgument('username'));
-        $output->writeln('User successfully generated!');
-
-        $output->writeln('<info>foo</info>');
-        $output->writeln('<comment>foo</comment>');
-        $output->writeln('<question>foo</question>');
-        $output->writeln('<error>foo</error>');
-
-        $outputStyle = new OutputFormatterStyle('red', '#ff0', ['bold', 'blink']);
-        $output->getFormatter()->setStyle('fire', $outputStyle);
-        $output->writeln('<fire>foo</>');
-
-        $output->writeln('<fg=green>foo</>');
-        $output->writeln('<fg=#c0392b>foo</>');
-        $output->writeln('<fg=black;bg=cyan>foo</>');
-        $output->writeln('<bg=yellow;options=bold>foo</>');
-        $output->writeln('<options=bold,underscore>foo</>');
-
-        $output->writeln('<href=https://symfony.com>Symfony Homepage</>');
-
-        return Command::SUCCESS;
+        return 0;
     }
 
     protected function configure(): void
