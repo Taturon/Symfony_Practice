@@ -42,6 +42,11 @@ class CreateUserCommand extends Command
             $output->writeln('User class: '.get_class($user));
         }
 
+        $output->writeln(
+            'Will only be printed in verbose mode or higher',
+            OutputInterface::VERBOSITY_VERBOSE
+        );
+
         return 0;
     }
 
