@@ -14,7 +14,11 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-        $question = new ConfirmationQuestion('Continue with this action?', false);
+        $question = new ConfirmationQuestion(
+            'Continue with this action?',
+            false
+            '/^(y|j)/i'
+        );
 
         if (!$helper->ask($input, $output, $question)) {
             return Command::SUCCESS;
