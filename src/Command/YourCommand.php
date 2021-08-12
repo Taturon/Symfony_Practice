@@ -19,6 +19,8 @@ class YourCommand extends Command
             false
             '/^(y|j)/i'
         );
+        $question = new Question('Please enter the name of the bundle', 'AcmeDemoBundle');
+        $bundleName = $helper->ask($input, $output, $question);
 
         if (!$helper->ask($input, $output, $question)) {
             return Command::SUCCESS;
