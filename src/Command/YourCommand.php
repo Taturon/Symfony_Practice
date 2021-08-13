@@ -14,16 +14,14 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-        $question = new ConfirmationQuestion(
-            'Continue with this action?',
-            false
-            '/^(y|j)/i'
+        $question = new ChoiceQuestion(
+            'Please select your favorite color (defaults to red)',
+            ['red', 'blue', 'yellow'],
+            0
         );
-        $question = new Question('Please enter the name of the bundle', 'AcmeDemoBundle');
-        $bundleName = $helper->ask($input, $output, $question);
+        $question->setErrorMessage('Color %s is invalid.');
+        $color = $helper->ask($input, $output, $question);
+        $output->writeln('You have just selected: '.$color);
 
-        if (!$helper->ask($input, $output, $question)) {
-            return Command::SUCCESS;
-        }
     }
 }
