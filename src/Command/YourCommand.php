@@ -14,6 +14,7 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
+        QuestionHelper::disableStty();
         $question = new Question('What is the database password?');
         $question->setHidden(true);
         $question->setHiddenFallback(false);
