@@ -14,8 +14,8 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-        $question = new Question('What is the name of the child?');
-        $question->setTrimmable(false);
-        $name = $helper->ask($input, $output, $question);
+        $question = new Question('How do you solve world peace?');
+        $question->setMultiline(true);
+        $answer = $helper->ask($input, $output, $question);
     }
 }
