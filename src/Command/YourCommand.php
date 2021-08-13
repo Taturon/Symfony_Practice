@@ -14,14 +14,9 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-        $question = new ChoiceQuestion(
-            'Please select your favorite color (defaults to red)',
-            ['red', 'blue', 'yellow'],
-            0
-        );
-        $question->setMultiselect(true);
-        $question->setErrorMessage('Color %s is invalid.');
-        $color = $helper->ask($input, $output, $question);
-        $output->writeln('You have just selected: ' . implode(', ', $colors));
+        $bundles = ['AcmeDemoBundle', 'AcmeBlogBundle', 'AcmeStoreBundle'];
+        $question = new Question('Please enter the name of a bundle', 'FooBundle');
+        $question->setAutocompleterValues($bundles);
+        $bundleName = $helper->ask($input, $output, $question);
     }
 }
