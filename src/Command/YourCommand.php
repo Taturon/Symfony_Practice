@@ -19,9 +19,9 @@ class YourCommand extends Command
             ['red', 'blue', 'yellow'],
             0
         );
+        $question->setMultiselect(true);
         $question->setErrorMessage('Color %s is invalid.');
         $color = $helper->ask($input, $output, $question);
-        $output->writeln('You have just selected: '.$color);
-
+        $output->writeln('You have just selected: ' . implode(', ', $colors));
     }
 }
