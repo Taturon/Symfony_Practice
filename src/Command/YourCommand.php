@@ -14,20 +14,8 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-
-        $callback = function (string $userInput): array {
-            $inputPath = preg_replace('%(/|^)[^/]*$%', '$1', $userInput);
-            $inputPath = '' === $inputPath ? '.' : $inputPath;
-            $foundFilesAndDirs = @scandir($inputPath) ?: [];
-
-            return array_map(function ($dirOrFile) use ($inputPath) {
-                return $inputPath.$dirOrFile;
-            }, $foundFilesAndDirs);
-        };
-
-        $question = new Question('Please provide the full path of a file to parse');
-        $question->setAutocompleterCallback($callback);
-
-        $filePath = $helper->ask($input, $output, $question);
+        $question = new Question('What is the name of the child?');
+        $question->setTrimmable(false);
+        $name = $helper->ask($input, $output, $question);
     }
 }
