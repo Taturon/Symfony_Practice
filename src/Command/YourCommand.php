@@ -15,15 +15,11 @@ class YourCommand extends Command
     {
         $helper = $this->getHelper('question');
         $question = new Question('Please enter the name of the bundle', 'AcmeDemoBundle');
-        $question->setValidator(function ($answer) {
-            if (!is_string($answer) || 'Bundle' !== substr($answer, -6)) {
-                throw new \RuntimeException(
-                    'The name of the bundle should be suffixed with \'Bundle\''
-                );
-            }
-
-            return $answer;
-        });
+        $validation = Validation::createCallable(new Regex([
+            'pattern' => '/^[a-zA-Z]+Bundle$',
+            'message' => 'The name of the bundle should be suffixed with \'Bundle\'',
+        ]));
+        $question->setValidator($validation);
         $question->setMaxAttempts(2);
         $bundleName = $helper->ask($input, $output, $question);
     }
