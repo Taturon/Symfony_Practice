@@ -16,13 +16,16 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
-        $question = new Question('Please enter the name of the bundle', 'AcmeDemoBundle');
-        $validation = Validation::createCallable(new Regex([
-            'pattern' => '/^[a-zA-Z]+Bundle$',
-            'message' => 'The name of the bundle should be suffixed with \'Bundle\'',
-        ]));
-        $question->setValidator($validation);
-        $question->setMaxAttempts(2);
-        $bundleName = $helper->ask($input, $output, $question);
+        $question = new Question('Please enter your password');
+        $question->setValidator(function ($value) {
+            if (trim($value) == '') {
+                throw new \Exception('The password cannot be empty');
+            }
+
+            return $value;
+        });
+        $question->setHidden(true);
+        $question->setMaxAttempts(20);
+        $password = $helper->ask($input, $output, $question);
     }
 }
