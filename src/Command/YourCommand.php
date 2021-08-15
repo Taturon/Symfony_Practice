@@ -11,10 +11,8 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $formatter = $this->getHelper('formatter');
-        $formattedLine = $formatter->formatSection(
-            'SomeSection',
-            'Here is some message related to that section'
-        );
-        $output->writeln($formattedLine);
+        $errorMessages = ['Error!', 'Something went wrong'];
+        $formattedBlock = $formatter->formatBlock($errorMessages, 'error');
+        $output->writeln($formattedBlock);
     }
 }
