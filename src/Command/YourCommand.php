@@ -15,9 +15,16 @@ class YourCommand extends Command
     {
         $helper = $this->getHelper('question');
         $question = new Question('Please enter the name of the bundle', 'AcmeDemoBundle');
-        $question->setNormalizer(function ($value) {
-            return $value ? trim($value) : '';
+        $question->setValidator(function ($answer) {
+            if (!is_string($answer) || 'Bundle' !== substr($answer, -6)) {
+                throw new \RuntimeException(
+                    'The name of the bundle should be suffixed with \'Bundle\''
+                );
+            }
+
+            return $answer;
         });
+        $question->setMaxAttempts(2);
         $bundleName = $helper->ask($input, $output, $question);
     }
 }
