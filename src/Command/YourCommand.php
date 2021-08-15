@@ -31,4 +31,13 @@ class YourCommand extends Command
         $question->setMaxAttempts(20);
         $password = $helper->ask($input, $output, $question);
     }
+
+    public function testExecute()
+    {
+        $commandTester = new CommandTester($command);
+        $commandTester->setInputs(['Test']);
+        $commandTester->setInputs(['This', 'That']);
+        $commandTester->setInputs(['yes']);
+        $commandTester->execute(['command' => $command->getName()]);
+    }
 }
