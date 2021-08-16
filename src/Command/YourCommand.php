@@ -11,8 +11,8 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $formatter = $this->getHelper('formatter');
-        $errorMessages = ['Error!', 'Something went wrong'];
-        $formattedBlock = $formatter->formatBlock($errorMessages, 'error');
-        $output->writeln($formattedBlock);
+        $message = "This is a very long message, which should be truncated";
+        $truncatedMessage = $formatter->truncate($message, 7);
+        $output->writeln($truncatedMessage);
     }
 }
