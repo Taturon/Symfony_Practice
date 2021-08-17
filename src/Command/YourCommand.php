@@ -12,7 +12,7 @@ class YourCommand extends Command
     {
         $formatter = $this->getHelper('formatter');
         $message = "This is a very long message, which should be truncated";
-        $truncatedMessage = $formatter->truncate($message, 7);
+        $truncatedMessage = $formatter->truncate($message, -5);
         $output->writeln($truncatedMessage);
     }
 }
