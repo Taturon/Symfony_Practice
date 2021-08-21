@@ -15,7 +15,7 @@ class YourCommand extends Command
         $progressBar->start();
         $i = 0;
         while ($i++ < 50) {
-            $progressBar->advance(3);
+            $progressBar->advance(-2);
         }
         $progressBar->finish();
     }
