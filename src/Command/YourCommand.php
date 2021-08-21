@@ -12,9 +12,9 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output);
-        // $iterable can be array
-        $iterable = [1, 2];
-        foreach ($progressBar->iterate($iterable) as $value) {
+        // or a generator
+        function iterable() { yield 1; yield 2; ... };
+        foreach ($progressBar->iterate(iterable()) as $value) {
             // ... do some work
         }
     }
