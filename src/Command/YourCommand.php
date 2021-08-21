@@ -13,9 +13,10 @@ class YourCommand extends Command
     {
         $progressBar = new ProgressBar($output, 50);
         $progressBar->start();
+        $progressBar->setMaxSteps(200);
         $i = 0;
         while ($i++ < 50) {
-            $progressBar->setProgress(25);
+            $progressBar->advance();
         }
         $progressBar->finish();
     }
