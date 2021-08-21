@@ -12,11 +12,10 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output);
-        $progressBar->start();
-        $i = 0;
-        while ($i++ < 50) {
-            $progressBar->advance();
+        // $iterable can be array
+        $iterable = [1, 2];
+        foreach ($progressBar->iterate($iterable) as $value) {
+            // ... do some work
         }
-        $progressBar->finish();
     }
 }
