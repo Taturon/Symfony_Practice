@@ -11,9 +11,8 @@ class YourCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $progressBar = new ProgressBar($output, 50);
+        $progressBar = new ProgressBar($output);
         $progressBar->start();
-        $progressBar->setMaxSteps(200);
         $i = 0;
         while ($i++ < 50) {
             $progressBar->advance();
