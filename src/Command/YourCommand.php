@@ -12,6 +12,6 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output);
-        $progressBar->setFormat('verbose');
+        $progressBar->setFormat('%bar%');
     }
 }
