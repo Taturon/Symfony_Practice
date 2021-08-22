@@ -15,5 +15,6 @@ class YourCommand extends Command
         $progressBar->setBarCharacter('<comment>=</comment>');
         $progressBar->setEmptyBarCharacter(' ');
         $progressBar->setProgressCharacter('|');
+        $progressBar->setBarWidth(50);
     }
 }
