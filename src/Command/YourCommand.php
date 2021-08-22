@@ -11,7 +11,8 @@ class YourCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $progressBar = new ProgressBar($output);
-        $progressBar->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%');
+        ProgressBar::setFormatDefinition('minimal', 'Progress: %percent%%');
+        $progressBar = new ProgressBar($output, 3);
+        $progressBar->setFormat('minimal');
     }
 }
