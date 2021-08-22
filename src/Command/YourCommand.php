@@ -12,6 +12,6 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output);
-        $progressBar->setFormat('%bar%');
+        $progressBar->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%');
     }
 }
