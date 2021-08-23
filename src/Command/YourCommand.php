@@ -11,10 +11,17 @@ class YourCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $progressBar = new ProgressBar($output);
-        $progressBar->setBarCharacter('<comment>=</comment>');
-        $progressBar->setEmptyBarCharacter(' ');
-        $progressBar->setProgressCharacter('|');
-        $progressBar->setBarWidth(50);
+        $progressBar = new ProgressBar($output, 50000);
+        $progressBar->start();
+
+        $progressBar->setRedrawFrequency(100);
+        $progressBar->maxSecondsBetweenRedraws(0.2);
+        $progressBar->minSecondsBetweenRedraws(0.1);
+
+        $i = 0;
+        while ($i++ < 50000) {
+            // ... do some work
+            $progressBar->advance();
+        }
     }
 }
