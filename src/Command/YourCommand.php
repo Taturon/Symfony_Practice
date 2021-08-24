@@ -12,6 +12,12 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output, 50000);
+        ProgressBar::setPlaceholderFormatterDefinition(
+            'remaining_steps',
+            function (ProgressBar $progressBar, OutputInterface $output) {
+                return $progressBar->getMaxSteps() - $progressBar->getProgress();
+            }
+        );
         $progressBar->start();
 
         $progressBar->setRedrawFrequency(100);
