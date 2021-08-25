@@ -12,6 +12,8 @@ class YourCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output, 50000);
+        ProgressBar::setFormatDefinition('custom', ' %current%/%max% -- %message%');
+        $progressBar->setFormat('custom');
         ProgressBar::setPlaceholderFormatterDefinition(
             'remaining_steps',
             function (ProgressBar $progressBar, OutputInterface $output) {
