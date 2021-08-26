@@ -20,12 +20,14 @@ class YourCommand extends Command
                 return $progressBar->getMaxSteps() - $progressBar->getProgress();
             }
         );
+        $progressBar->setMessage('Start');
         $progressBar->start();
 
         $progressBar->setRedrawFrequency(100);
         $progressBar->maxSecondsBetweenRedraws(0.2);
         $progressBar->minSecondsBetweenRedraws(0.1);
 
+        $progressBar->setMessage('Task is in progress...');
         $i = 0;
         while ($i++ < 50000) {
             // ... do some work
