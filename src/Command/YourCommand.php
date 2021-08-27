@@ -14,23 +14,12 @@ class YourCommand extends Command
         ProgressBar::setFormatDefinition('custom', ' %current%/%max% -- %message% (%filename%)');
         $progressBar = new ProgressBar($output, 100);
         $progressBar->setFormat('custom');
-        ProgressBar::setPlaceholderFormatterDefinition(
-            'remaining_steps',
-            function (ProgressBar $progressBar, OutputInterface $output) {
-                return $progressBar->getMaxSteps() - $progressBar->getProgress();
-            }
-        );
+        $files = ['client-001/invoices.xml', '...'];
         $progressBar->setMessage('Start');
         $progressBar->start();
-
-        $progressBar->setRedrawFrequency(100);
-        $progressBar->maxSecondsBetweenRedraws(0.2);
-        $progressBar->minSecondsBetweenRedraws(0.1);
-
-        $progressBar->setMessage('Task is in progress...');
-        $i = 0;
-        while ($i++ < 50000) {
-            // ... do some work
+        foreach ($files as $filename) {
+            $progressBar->setMessage('Importing invoices...');
+            $progressBar->setMessage($filename, 'filename');
             $progressBar->advance();
         }
     }
