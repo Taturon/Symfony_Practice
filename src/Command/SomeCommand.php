@@ -25,6 +25,7 @@ class SomeCommand extends Command
             ])
         ;
         $table->setHeaderTitle('Books');
+        $table->setFooterTitle('Page 1/2');
         $table->render();
     }
 }
