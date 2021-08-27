@@ -24,6 +24,7 @@ class SomeCommand extends Command
                 ['80-902734-1-6', 'And Then There Were None', 'Agatha Christie'],
             ])
         ;
+        $table->setHeaderTitle('Books');
         $table->render();
     }
 }
