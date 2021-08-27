@@ -11,16 +11,24 @@ class YourCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        ProgressBar::setFormatDefinition('custom', ' %current%/%max% -- %message% (%filename%)');
-        $progressBar = new ProgressBar($output, 100);
-        $progressBar->setFormat('custom');
-        $files = ['client-001/invoices.xml', '...'];
-        $progressBar->setMessage('Start');
-        $progressBar->start();
-        foreach ($files as $filename) {
-            $progressBar->setMessage('Importing invoices...');
-            $progressBar->setMessage($filename, 'filename');
-            $progressBar->advance();
+        $section1 = $output->section();
+        $section2 = $output->section();
+
+        $progress1 = new ProgressBar($section1);
+        $progress2 = new ProgressBar($section2);
+
+        $progress1->start(100);
+        $progress2->start(100);
+
+        $i = 0;
+        while (++$i < 100) {
+            $progress1->advance();
+
+            if ($i % 2 === 0) {
+                $progress2->advance(4);
+            }
+
+            usleep(50000);
         }
     }
 }
