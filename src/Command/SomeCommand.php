@@ -26,6 +26,7 @@ class SomeCommand extends Command
         ;
         $table->setHeaderTitle('Books');
         $table->setFooterTitle('Page 1/2');
+        $table->setColumnWidths([10, 0, 30]);
         $table->render();
     }
 }
