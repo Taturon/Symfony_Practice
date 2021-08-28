@@ -30,7 +30,7 @@ class SomeCommand extends Command
         $table->setColumnWidth(2, 30);
         $table->setColumnMaxWidth(0, 5);
         $table->setColumnMaxWidth(1, 10);
-        $table->setStyle('borderless');
+        $table->setStyle('box');
         $table->render();
     }
 }
