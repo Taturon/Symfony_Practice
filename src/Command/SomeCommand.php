@@ -28,6 +28,8 @@ class SomeCommand extends Command
         $table->setFooterTitle('Page 1/2');
         $table->setColumnWidth(0, 10);
         $table->setColumnWidth(2, 30);
+        $table->setColumnMaxWidth(0, 5);
+        $table->setColumnMaxWidth(1, 10);
         $table->render();
     }
 }
