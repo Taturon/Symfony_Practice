@@ -14,7 +14,9 @@ class SomeCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
+        Table::setStyleDefinition('colorful', $tableStyle);
         $table = new Table($output);
+        $table->setStyle('colorful');
         $table
             ->setHeaders(['ISBN', 'Title', 'Author'])
             ->setRows([
@@ -31,13 +33,6 @@ class SomeCommand extends Command
         $table->setColumnWidth(2, 30);
         $table->setColumnMaxWidth(0, 5);
         $table->setColumnMaxWidth(1, 10);
-        $tableStyle = new TableStyle();
-        $tableStyle
-            ->setHorizontalBorderChars('<fg=magenta>|</>')
-            ->setVerticalBorderChars('<fg=magenta>-</>')
-            ->setDefaultCrossingChar(' ')
-        ;
-        $table->setStyle($tableStyle);
         $table->render();
     }
 }
