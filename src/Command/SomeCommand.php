@@ -34,6 +34,23 @@ class SomeCommand extends Command
         $table->setColumnWidth(2, 30);
         $table->setColumnMaxWidth(0, 5);
         $table->setColumnMaxWidth(1, 10);
+        $table->setRows([
+            [
+                '978-0804169127',
+                new TableCell(
+                    'Divine Comedy',
+                    [
+                        'style' => new TableCellStyle([
+                            'align' => 'center',
+                            'fg' => 'red',
+                            'bg' => 'green',
+                            // or
+                            'cellFormat' => '<info>%s</info>',
+                        ])
+                    ]
+                )
+            ],
+        ]);
         $table->render();
     }
 }
