@@ -22,12 +22,12 @@ class SomeCommand extends Command
         $table
             ->setHeaders(['ISBN', 'Title', 'Author'])
             ->setRows([
-                ['99921-58-10-7', 'Divine Comedy', 'Dante Alighieri'],
-                ['9971-5-0210-0', 'A Tale of Two Cities', 'Charles Dickens'],
-                new TableSeparator(),
-                ['960-425-059-0', 'The Lord of the Rings', 'J. R. R. Tolkien'],
-                ['80-902734-1-6', 'And Then There Were None', 'Agatha Christie'],
-                [new TableCell('This value spans 3 columns.', ['colspan' => 3])],
+                [
+                    '978-0521567817',
+                    'De Monarchia',
+                    new TableCell("Dante Alighieri\nspans multiple rows", ['rowspan' => 2]),
+                ],
+                ['978-0804169127', 'Divine Comedy'],
             ])
         ;
         $table->setHeaderTitle('Books');
