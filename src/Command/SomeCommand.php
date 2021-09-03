@@ -20,7 +20,8 @@ class SomeCommand extends Command
         $process = new Process(...);
         $output->writeln($debugFormatter->start(
             spl_object_hash($process),
-            'Some process description'
+            'Some process description',
+            'STARTED'
         ));
         $process->run();
     }
