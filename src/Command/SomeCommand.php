@@ -27,6 +27,7 @@ class SomeCommand extends Command
                 new TableSeparator(),
                 ['960-425-059-0', 'The Lord of the Rings', 'J. R. R. Tolkien'],
                 ['80-902734-1-6', 'And Then There Were None', 'Agatha Christie'],
+                [new TableCell('This value spans 3 columns.', ['colspan' => 3])],
             ])
         ;
         $table->setHeaderTitle('Books');
