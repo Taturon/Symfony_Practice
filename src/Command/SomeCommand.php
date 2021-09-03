@@ -18,13 +18,15 @@ class SomeCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $debugFormatter = $this->getHelper('debug_formatter');
         $process = new Process(...);
-        $output->writeln($debugFormatter->start(
-            spl_object_hash($process),
-            'Some process description',
-            'STARTED'
-        ));
-        $process->run();
+        $process->run(function ($type, $buffer) use ($output, $debugFormatter, $process) {
+            $output->writeln(
+                $debugFormatter->progress(
+                    spl_object_hash($process),
+                    $buffer,
+                    Process::ERR === $type
+                )
+            );
+        });
     }
 }
