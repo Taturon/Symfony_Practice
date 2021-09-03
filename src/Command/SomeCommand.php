@@ -16,12 +16,6 @@ class SomeCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $section = $output->section();
-        $table = new Table($section);
-
-        $table->addRow(['Love']);
-        $table->render();
-
-        $table->appendRow(['Symfony']);
+        $debugFormatter = $this->getHelper('debug_formatter');
     }
 }
