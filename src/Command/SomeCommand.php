@@ -17,5 +17,11 @@ class SomeCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $debugFormatter = $this->getHelper('debug_formatter');
+        $process = new Process(...);
+        $output->writeln($debugFormatter->start(
+            spl_object_hash($process),
+            'Some process description'
+        ));
+        $process->run();
     }
 }
