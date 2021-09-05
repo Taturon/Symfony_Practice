@@ -18,5 +18,6 @@ class MyCommand extends Command
         $cursor->moveDown();
         $cursor->moveRight(3);
         $cursor->moveLeft();
+        $cursor->moveToPosition(7, 11);
     }
 }
