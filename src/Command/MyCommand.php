@@ -14,5 +14,6 @@ class MyCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $cursor = new Cursor($output);
+        $cursor->moveUp();
     }
 }
