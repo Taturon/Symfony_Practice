@@ -15,5 +15,6 @@ class MyCommand extends Command
     {
         $cursor = new Cursor($output);
         $cursor->moveUp(3);
+        $cursor->moveDown();
     }
 }
