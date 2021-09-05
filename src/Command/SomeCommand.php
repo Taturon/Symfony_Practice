@@ -27,6 +27,13 @@ class SomeCommand extends Command
                     Process::ERR === $type
                 )
             );
+            $output->writeln(
+                $debugFormatter->stop(
+                    spl_object_hash($process),
+                    'Some command description',
+                    $process->isSuccessful()
+                )
+            );
         });
     }
 }
