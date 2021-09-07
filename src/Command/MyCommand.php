@@ -20,5 +20,6 @@ class MyCommand extends Command
         $cursor->moveLeft();
         $cursor->moveToPosition(7, 11);
         $position = $cursor->getCurrentPosition();
+        $cursor->clearLine();
     }
 }
