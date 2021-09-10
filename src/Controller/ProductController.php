@@ -33,6 +33,24 @@ class ProductController extends AbstractController
         return new Response('Saved new product with id '.$product->getId());
     }
 
+    /**
+     * @Route("/product/{id}", name="product_show")
+     */
+    public function show(int $id): Response
+    {
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        return new Response('Check out this great product: '.$product->getName());
+    }
+
     public function index(): Response
     {
         $contents = $this->renderView('product/index.html.twig', [
