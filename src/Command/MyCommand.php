@@ -23,5 +23,6 @@ class MyCommand extends Command
         $cursor->clearLine();
         $cursor->clearLineAfter();
         $cursor->clearOutput();
+        $cursor->clearScreen();
     }
 }
