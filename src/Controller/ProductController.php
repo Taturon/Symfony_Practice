@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,8 +39,7 @@ class ProductController extends AbstractController
      */
     public function show(int $id): Response
     {
-        $product = $this->getDoctrine()
-            ->getRepository(Product::class)
+        $product = $productRepository
             ->find($id);
 
         if (!$product) {
