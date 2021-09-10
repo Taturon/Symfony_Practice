@@ -22,5 +22,6 @@ class MyCommand extends Command
         $position = $cursor->getCurrentPosition();
         $cursor->clearLine();
         $cursor->clearLineAfter();
+        $cursor->clearOutput();
     }
 }
