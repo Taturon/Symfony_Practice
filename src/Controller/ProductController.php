@@ -21,6 +21,11 @@ class ProductController extends AbstractController
         $product->setPrice(1999);
         $product->setDescription('Ergonomic and stylish!');
 
+        $errors = $validator->validate($product);
+        if (count($errors) > 0) {
+            return new Response((string) $errors, 400);
+        }
+
         $entityManager->persist($product);
 
         $entityManager->flush();
