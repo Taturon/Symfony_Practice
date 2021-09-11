@@ -41,7 +41,7 @@ class ProductController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(Product::class);
 
-        $product = $repository->find($id);
+        $product = $repository->findOneBy(['name' => 'Keyboard']);
 
         if (!$product) {
             throw $this->createNotFoundException(
