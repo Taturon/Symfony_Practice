@@ -13,22 +13,19 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    /**
-     * @return Product[]
-     */
-    public function findAllGreaterThanPrice(int $price, bool $includeUnavailableProducts = false): array
+    public function findAllGreaterThanPrice(int $price): array
     {
-        $qb = $this->createQueryBuilder('p')
-            ->where('p.price > :price')
-            ->setParameter('price', $price)
-            ->orderBy('p.price', 'ASC');
+        $conn = $this->getEntityManager()->getConnection();
 
-        if (!$includeUnavailableProducts) {
-            $qb->andWhere('p.available = TRUE');
-        }
+        $sql = '
+            SELECT * FROM product p
+            WHERE p.price > :price
+            ORDER BY p.price ASC
+            ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['price' => $price]);
 
-        $query = $qb->getQuery();
-
-        return $query->execute();
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAllAssociative();
     }
 }
