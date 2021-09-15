@@ -43,6 +43,9 @@ services:
     App\Command\SunshineCommand:
         tags:
             - { name: 'console.command', command: 'app:sunshine' }
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
     app.cache.adapter.redis:
         parent: 'cache.adapter.redis'
         tags:
