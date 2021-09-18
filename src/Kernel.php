@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Event\MyCustomEvent;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use Symfony\Component\EventDispatcher\DependencyInjection\AddEventAliasesPass;
 
 class Kernel extends BaseKernel
 {
