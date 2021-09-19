@@ -21,6 +21,8 @@ class TaskController extends AbstractController
 
         $form = $this->createForm(TaskType::class, $task);
 
-        // ...
+        return $this->render('task/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }
