@@ -16,3 +16,5 @@ framework:
     php_errors:
         log: true
     fragments: { path: /_fragment }
+    form:
+        legacy_error_messages: false
