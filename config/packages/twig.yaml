@@ -3,3 +3,4 @@ twig:
     paths:
         'email/default/templates': 'email'
         'backend/templates': 'admin'
+    form_themes: ['bootstrap_4_layout.html.twig']
