@@ -41,4 +41,16 @@ class TaskController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            // ...,
+            'require_due_date' => false,
+        ]);
+
+        // you can also define the allowed types, allowed values and
+        // any other feature supported by the OptionsResolver component
+        $resolver->setAllowedTypes('require_due_date', 'bool');
+    }
 }
