@@ -15,7 +15,7 @@ class TaskType extends AbstractType
         $builder
             ->add('task', TextType::class)
             ->add('dueDate', DateType::class, [
-                'required' => $options['require_due_date'],
+                'required' => false,
             ])
             ->add('save', SubmitType::class)
         ;
