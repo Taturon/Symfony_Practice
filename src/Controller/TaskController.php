@@ -19,25 +19,7 @@ class TaskController extends AbstractController
         $task->setTask('Write a blog post');
         $task->setDueDate(new \DateTime('tomorrow'));
 
-        $form = $this->createForm(TaskType::class, $task, [
-            'require_due_date' => $dueDateIsRequired,
-            'action' => $this->generateUrl('target_route'),
-            'method' => 'GET',
-        ]);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
-            $task = $form->getData();
-
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            // $entityManager = $this->getDoctrine()->getManager();
-            // $entityManager->persist($task);
-            // $entityManager->flush();
-
-            return $this->redirectToRoute('task_success');
-        }
+        $form = $this->get('form.factory')->createNamed('my_name', TaskType::class, $task);
 
         return $this->render('task/new.html.twig', [
             'form' => $form->createView(),
