@@ -22,6 +22,7 @@ class TaskController extends AbstractController
         $form = $this->createForm(TaskType::class, $task, [
             'require_due_date' => $dueDateIsRequired,
         ]);
+        $form->setAction($this->generateUrl('target_route'));
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
