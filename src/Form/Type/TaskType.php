@@ -17,6 +17,7 @@ class TaskType extends AbstractType
             ->add('dueDate', null, [
                 'label' => 'To Be Completed Before',
             ])
+            ->add('agreeTerms', CheckboxType::class, ['mapped' => false])
             ->add('save', SubmitType::class)
         ;
     }
