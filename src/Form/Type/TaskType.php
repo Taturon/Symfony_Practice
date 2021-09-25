@@ -14,7 +14,7 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('task')
-            ->add('dueDate', DateType::class, [
+            ->add('dueDate', null, [
                 'label' => 'To Be Completed Before',
             ])
             ->add('save', SubmitType::class)
