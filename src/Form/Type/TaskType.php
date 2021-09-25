@@ -13,7 +13,7 @@ class TaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('task')
+            ->add('task', null, ['attr' => ['maxlength' => 4]])
             ->add('dueDate', null, [
                 'label' => 'To Be Completed Before',
             ])
