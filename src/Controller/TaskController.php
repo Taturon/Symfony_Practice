@@ -21,6 +21,7 @@ class TaskController extends AbstractController
 
         $form = $this->get('form.factory')->createNamed('my_name', TaskType::class, $task);
         $form->get('agreeTerms')->getData();
+        $form->get('agreeTerms')->setData(true);
 
         return $this->render('task/new.html.twig', [
             'form' => $form->createView(),
