@@ -20,6 +20,7 @@ class TaskController extends AbstractController
         $task->setDueDate(new \DateTime('tomorrow'));
 
         $form = $this->get('form.factory')->createNamed('my_name', TaskType::class, $task);
+        $form->get('agreeTerms')->getData();
 
         return $this->render('task/new.html.twig', [
             'form' => $form->createView(),
