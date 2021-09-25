@@ -1,3 +1,3 @@
 {# templates/task/new.html.twig #}
 {{ render(controller('App\\Controller\\TaskController::new')) }}
-{{ form(form) }}
+{{ form_start(form, {'action': path('target_route'), 'method': 'GET'}) }}
