@@ -38,27 +38,16 @@ class BlogController extends AbstractController
      */
     public function index(int $page, string $title, SessionInterface $session, Request $request): Response
     {
-        $session->set('foo', 'bar');
-        $foobar = $session->get('foobar');
-        $filters = $session->get('filters', []);
+        $response = $this->render('blog/index.html.twig', []);
 
-        $request->isXmlHttpRequest();
-        $request->getPreferredLanguage(['en', 'fr']);
-        $request->query->get('page');
-        $request->request->get('page');
-        $request->server->get('HTTP_HOST');
-        $request->files->get('foo');
-        $request->cookies->get('PHPSESSID');
-        $request->headers->get('host');
-        $request->headers->get('content-type');
+        // cache publicly for 3600 seconds
+        $response->setPublic();
+        $response->setMaxAge(3600);
 
-        $response = new Response('Hello '.$name, Response::HTTP_OK);
-        $response = new Response('<style> ... </style>');
-        $response->headers->set('Content-Type', 'text/css');
+        // (optional) set a custom Cache-Control directive
+        $response->headers->addCacheControlDirective('must-revalidate', true);
 
-        $contentsDir = $this->getParameter('kernel.project_dir').'/contents';
-
-        return $this->json(['username' => 'jane.doe']);
+        return $response;
     }
 
     /**
