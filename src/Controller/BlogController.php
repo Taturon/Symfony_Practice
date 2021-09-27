@@ -47,8 +47,7 @@ class BlogController extends AbstractController
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
 
-        // marks the Response stale
-        $response->expire();
+        $response->setNotModified();
 
         return $response;
     }
