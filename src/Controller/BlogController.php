@@ -47,7 +47,20 @@ class BlogController extends AbstractController
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
 
-        $response->setNotModified();
+        $response->setCache([
+            'must_revalidate'  => false,
+            'no_cache'         => false,
+            'no_store'         => false,
+            'no_transform'     => false,
+            'public'           => true,
+            'private'          => false,
+            'proxy_revalidate' => false,
+            'max_age'          => 600,
+            's_maxage'         => 600,
+            'immutable'        => true,
+            'last_modified'    => new \DateTime(),
+            'etag'             => 'abcdef'
+        ]);
 
         return $response;
     }
