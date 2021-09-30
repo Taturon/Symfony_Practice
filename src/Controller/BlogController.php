@@ -63,6 +63,8 @@ class BlogController extends AbstractController
             'etag'             => 'abcdef'
         ]);
 
+        $response->headers->set(AbstractSessionListener::NO_AUTO_CACHE_CONTROL_HEADER, 'true');
+
         return $response;
     }
 
