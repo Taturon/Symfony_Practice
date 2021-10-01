@@ -40,6 +40,7 @@ class BlogController extends AbstractController
     public function index(int $page, string $title, SessionInterface $session, Request $request, LoggerInterface $logger): Response
     {
         $logger->info('I just got the logger');
+        $logger->error('An error occurred');
 
         $response = $this->render('blog/index.html.twig', []);
 
