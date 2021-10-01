@@ -39,6 +39,8 @@ class BlogController extends AbstractController
      */
     public function index(int $page, string $title, SessionInterface $session, Request $request, LoggerInterface $logger): Response
     {
+        $logger->info('I just got the logger');
+
         $response = $this->render('blog/index.html.twig', []);
 
         // cache publicly for 3600 seconds
