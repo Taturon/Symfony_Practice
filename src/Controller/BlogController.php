@@ -37,7 +37,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/{_locale}", name="index")
      */
-    public function index(int $page, string $title, SessionInterface $session, Request $request): Response
+    public function index(int $page, string $title, SessionInterface $session, Request $request, LoggerInterface $logger): Response
     {
         $response = $this->render('blog/index.html.twig', []);
 
