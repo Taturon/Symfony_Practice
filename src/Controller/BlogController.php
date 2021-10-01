@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Psr\Log\LoggerInterface;
 
 /**
  * @Route("/blog", requirements={"_locale": "en|es|fr"}, name="blog_")
