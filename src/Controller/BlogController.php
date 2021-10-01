@@ -41,6 +41,9 @@ class BlogController extends AbstractController
     {
         $logger->info('I just got the logger');
         $logger->error('An error occurred');
+        $logger->critical('I left the oven on!', [
+            'cause' => 'in_hurry',
+        ]);
 
         $response = $this->render('blog/index.html.twig', []);
 
