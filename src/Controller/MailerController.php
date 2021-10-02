@@ -18,6 +18,8 @@ class MailerController extends AbstractController
             ->from(Address::create('Fabien Potencier <fabien@example.com>'))
             ->to('you@example.com')
             ->addTo('bar@example.com')
+            ->cc('cc@example.com')
+            ->addCc('cc2@example.com')
             ->subject('Time for Symfony Mailer!')
             ->text('Sending emails is fun again!')
             ->html('<p>See Twig integration for better HTML integration!</p>');
