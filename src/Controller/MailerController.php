@@ -14,10 +14,10 @@ class MailerController extends AbstractController
      */
     public function sendEmail(MailerInterface $mailer): Response
     {
+        $toAddresses = ['foo@example.com', new Address('bar@example.com')];
         $email = (new Email())
             ->from(Address::create('Fabien Potencier <fabien@example.com>'))
-            ->to('you@example.com')
-            ->addTo('bar@example.com')
+            ->to($toAddresses)
             ->cc('cc@example.com')
             ->addCc('cc2@example.com')
             ->subject('Time for Symfony Mailer!')
