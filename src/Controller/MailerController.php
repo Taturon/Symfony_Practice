@@ -16,6 +16,8 @@ class MailerController extends AbstractController
     {
         $toAddresses = ['foo@example.com', new Address('bar@example.com')];
         $email = (new Email())
+            ->getHeaders()
+            ->addTextHeader('X-Auto-Response-Suppress', 'OOF, DR, RN, NRN, AutoReply');
             ->from(Address::create('Fabien Potencier <fabien@example.com>'))
             ->to($toAddresses)
             ->cc('cc@example.com')
