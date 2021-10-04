@@ -23,9 +23,8 @@ class MailerController extends AbstractController
             ->cc('cc@example.com')
             ->addCc('cc2@example.com')
             ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
-
+            ->text(fopen('/path/to/emails/user_signup.txt', 'r'))
+            ->html(fopen('/path/to/emails/user_signup.html', 'r'))
         $mailer->send($email);
 
         // ...
