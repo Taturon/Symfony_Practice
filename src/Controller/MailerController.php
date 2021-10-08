@@ -18,7 +18,7 @@ class MailerController extends AbstractController
         $email = (new Email())
             ->getHeaders()
             ->addTextHeader('X-Auto-Response-Suppress', 'OOF, DR, RN, NRN, AutoReply');
-            ->attachFromPath('/path/to/documents/contract.doc', 'Contract', 'application/msword')
+            ->attach(fopen('/path/to/documents/contract.doc', 'r'))
             ->from(Address::create('Fabien Potencier <fabien@example.com>'))
             ->to($toAddresses)
             ->cc('cc@example.com')
