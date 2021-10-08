@@ -3,3 +3,4 @@ framework:
     mailer:
         envelope:
             sender: 'fabien@example.com'
+            recipients: ['foo@example.com', 'bar@example.com']
