@@ -6,3 +6,4 @@ framework:
             recipients: ['foo@example.com', 'bar@example.com']
         headers:
             from: 'Fabien <fabien@example.com>'
+            bcc: 'baz@example.com'
