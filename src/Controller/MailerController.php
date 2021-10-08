@@ -19,6 +19,7 @@ class MailerController extends AbstractController
             ->getHeaders()
             ->addTextHeader('X-Auto-Response-Suppress', 'OOF, DR, RN, NRN, AutoReply');
             ->attach(fopen('/path/to/documents/contract.doc', 'r'))
+            ->embed(fopen('/path/to/images/logo.png', 'r'), 'logo')
             ->from(Address::create('Fabien Potencier <fabien@example.com>'))
             ->to($toAddresses)
             ->cc('cc@example.com')
