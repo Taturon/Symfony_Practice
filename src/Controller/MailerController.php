@@ -22,6 +22,7 @@ class MailerController extends AbstractController
             ->to(new Address('ryan@example.com'))
             ->subject('Thanks for signing up!')
             ->htmlTemplate('emails/signup.html.twig')
+            ->textTemplate('emails/signup.txt.twig')
             ->context([
                 'expiration_date' => new \DateTime('+7 days'),
                 'username' => 'foo',
