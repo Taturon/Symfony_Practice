@@ -27,8 +27,13 @@ class MailerController extends AbstractController
             ->addCc('cc2@example.com')
             ->subject('Time for Symfony Mailer!')
             ->text(fopen('/path/to/emails/user_signup.txt', 'r'))
-            ->html(fopen('/path/to/emails/user_signup.html', 'r'))
-        $mailer->send($email);
+            ->html(fopen('/path/to/emails/user_signup.html', 'r'));
+        try {
+            $mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            // some error prevented the email sending; display an
+            // error message or try to resend the message
+        }
 
         // ...
     }
