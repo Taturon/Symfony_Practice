@@ -3,4 +3,5 @@ twig:
     paths:
         'email/default/templates': 'email'
         'backend/templates': 'admin'
+        '%kernel.project_dir%/assets/images': images
     form_themes: ['bootstrap_4_layout.html.twig']
