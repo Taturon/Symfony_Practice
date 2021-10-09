@@ -7,3 +7,4 @@ framework:
         headers:
             from: 'Fabien <fabien@example.com>'
             bcc: 'baz@example.com'
+            X-Custom-Header: 'foobar'
