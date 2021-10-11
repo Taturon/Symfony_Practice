@@ -1,4 +1,15 @@
 {# templates/emails/signup.html.twig #}
+{% apply inline_css %}
+    <style>
+        {# here, define your CSS styles as usual #}
+        h1 {
+            color: #333;
+        }
+    </style>
+
+    <h1>Welcome {{ email.toName }}!</h1>
+    {# ... #}
+{% endapply %}
 <img src="{{ email.image('@images/logo.png') }}" alt="Logo">
 <h1>Welcome {{ email.toName }}!</h1>
 
