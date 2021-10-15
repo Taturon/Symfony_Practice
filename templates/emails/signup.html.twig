@@ -1,7 +1,12 @@
 {# templates/emails/signup.html.twig #}
-{% apply inline_css(source('@styles/email.css')) %}
-    <h1>Welcome {{ username }}!</h1>
-    {# ... #}
+{% apply markdown_to_html %}
+    Welcome {{ email.toName }}!
+    ===========================
+
+    You signed up to our site using the following email:
+    `{{ email.to[0].address }}`
+
+    [Click here to activate your account]({{ url('...') }})
 {% endapply %}
 <img src="{{ email.image('@images/logo.png') }}" alt="Logo">
 <h1>Welcome {{ email.toName }}!</h1>
