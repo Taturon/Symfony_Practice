@@ -1,15 +1,6 @@
 {# templates/emails/signup.html.twig #}
-{% apply inky_to_html %}
-    <container>
-        <row class="header">
-            <columns>
-                <spacer size="16"></spacer>
-                <h1 class="text-center">Welcome {{ email.toName }}!</h1>
-            </columns>
-
-            {# ... #}
-        </row>
-    </container>
+{% apply inky_to_html|inline_css(source('@styles/foundation-emails.css')) %}
+    {# ... #}
 {% endapply %}
 <img src="{{ email.image('@images/logo.png') }}" alt="Logo">
 <h1>Welcome {{ email.toName }}!</h1>
