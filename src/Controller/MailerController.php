@@ -30,6 +30,9 @@ class MailerController extends AbstractController
             ])
         ;
 
+        $signer = new SMimeSigner('/path/to/certificate.crt', '/path/to/certificate-private-key.key');
+        $signedEmail = $signer->sign($email);
+
         // ...
     }
 }
