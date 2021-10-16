@@ -32,7 +32,12 @@ class MailerController extends AbstractController
         ;
 
         $signer = new DkimSigner('file:///path/to/private-key.key', 'example.com', 'sf');
-        $signedEmail = $signer->sign($email);
+        $signedEmail = $signer->sign($email, (new DkimOptions())
+            ->bodyCanon('relaxed')
+            ->headerCanon('relaxed')
+            ->headersToIgnore(['Message-ID'])
+            ->toArray()
+        );
 
         // ...
     }
