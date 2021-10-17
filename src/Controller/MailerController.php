@@ -40,6 +40,9 @@ class MailerController extends AbstractController
             ->toArray()
         );
 
+        $encrypter = new SMimeEncrypter('/path/to/certificate.crt');
+        $encryptedEmail = $encrypter->encrypt($email);
+
         // ...
     }
 }
