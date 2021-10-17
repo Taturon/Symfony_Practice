@@ -11,6 +11,7 @@ use Symfony\Component\Mime\Crypto\DkimOptions;
 use Symfony\Component\Mime\Crypto\SMimeEncrypter;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\Header\MetadataHeader;
 
 class MailerController extends AbstractController
 {
