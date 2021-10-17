@@ -32,6 +32,7 @@ class MailerController extends AbstractController
             ])
         ;
 
+        $email->getHeaders()->addTextHeader('X-Transport', 'alternative');
         $mailer->send($email);
 
         // ...
