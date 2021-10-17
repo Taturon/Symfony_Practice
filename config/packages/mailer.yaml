@@ -3,3 +3,4 @@ framework:
         transports:
             main: '%env(MAILER_DSN)%'
             alternative: '%env(MAILER_DSN_IMPORTANT)%'
+            message_bus: app.another_bus
