@@ -19,29 +19,22 @@ class MailerController extends AbstractController
      */
     public function sendEmail(MailerInterface $mailer): Response
     {
+        $firstEmail = (new Email())
+            // ...
+            ->to('jane@example.com');
 
-        $email = (new TemplatedEmail())
-            ->from('fabien@example.com')
-            ->to(new Address('ryan@example.com'))
-            ->subject('Thanks for signing up!')
-            ->htmlTemplate('emails/signup.html.twig')
-            ->textTemplate('emails/signup.txt.twig')
-            ->context([
-                'expiration_date' => new \DateTime('+7 days'),
-                'username' => 'foo',
-            ])
-        ;
+        $secondEmail = (new Email())
+            // ...
+            ->to('john@example.com');
 
-        $signer = new DkimSigner('file:///path/to/private-key.key', 'example.com', 'sf');
-        $signedEmail = $signer->sign($email, (new DkimOptions())
-            ->bodyCanon('relaxed')
-            ->headerCanon('relaxed')
-            ->headersToIgnore(['Message-ID'])
-            ->toArray()
-        );
+        $encrypter = new SMimeEncrypter([
+            // key = email recipient; value = path to the certificate file
+            'jane@example.com' => '/path/to/first-certificate.crt',
+            'john@example.com' => '/path/to/second-certificate.crt',
+        ]);
 
-        $encrypter = new SMimeEncrypter('/path/to/certificate.crt');
-        $encryptedEmail = $encrypter->encrypt($email);
+        $firstEncryptedEmail = $encrypter->encrypt($firstEmail);
+        $secondEncryptedEmail = $encrypter->encrypt($secondEmail);
 
         // ...
     }
