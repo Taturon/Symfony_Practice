@@ -12,6 +12,7 @@ use Symfony\Component\Mime\Crypto\SMimeEncrypter;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Header\MetadataHeader;
+use Symfony\Component\Mailer\Header\TagHeader;
 
 class MailerController extends AbstractController
 {
