@@ -36,6 +36,8 @@ class MailerController extends AbstractController
 
         $email->getHeaders()->addTextHeader('X-Transport', 'alternative');
         $email->getHeaders()->add(new TagHeader('password-reset'));
+        $email->getHeaders()->add(new MetadataHeader('Color', 'blue'));
+        $email->getHeaders()->add(new MetadataHeader('Client-ID', '12345'));
         $mailer->send($email);
 
         // ...
