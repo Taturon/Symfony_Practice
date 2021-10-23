@@ -46,6 +46,8 @@ services:
     App\EventListener\ExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
+    App\Factory:
+        tags: [messenger.transport_factory]
     app.cache.adapter.redis:
         parent: 'cache.adapter.redis'
         tags:
