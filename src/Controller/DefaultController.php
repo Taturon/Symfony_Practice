@@ -16,6 +16,9 @@ class DefaultController extends AbstractController
         // will cause the SmsNotificationHandler to be called
         $bus->dispatch(new SmsNotification('Look! I created a message!'));
 
+        // or use the shortcut
+        $this->dispatchMessage(new SmsNotification('Look! I created a message!'));
+
         // ...
     }
 
