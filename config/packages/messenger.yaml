@@ -6,4 +6,7 @@ framework:
 
         routing:
             'App\Message\SmsNotification': async
+            'App\Message\AbstractAsyncMessage': async
+            'App\Message\AsyncMessageInterface': async
+            'My\Message\ToBeSentToTwoSenders': [async, audit]
             'Symfony\Component\Mailer\Messenger\SendEmailMessage': async
