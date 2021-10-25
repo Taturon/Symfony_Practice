@@ -5,6 +5,22 @@ framework:
             async: "%env(MESSENGER_TRANSPORT_DSN)%"
             sync: 'sync://'
             yours: 'my-transport://...'
+            async_priority_high:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    # queue_name is specific to the doctrine transport
+                    queue_name: high
+
+                    # for AMQP send to a separate exchange then queue
+                    #exchange:
+                    #    name: high
+                    #queues:
+                    #    messages_high: ~
+                    # or redis try "group"
+            async_priority_low:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    queue_name: low
 
         routing:
             'App\Message\SmsNotification': async
@@ -13,3 +29,5 @@ framework:
             'My\Message\ToBeSentToTwoSenders': [async, audit]
             'Symfony\Component\Mailer\Messenger\SendEmailMessage': async
             App\Message\SmsNotification: sync
+            'App\Message\SmsNotification':  async_priority_low
+            'App\Message\NewUserWelcomeEmail':  async_priority_high
