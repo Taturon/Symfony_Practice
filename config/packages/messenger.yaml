@@ -1,6 +1,8 @@
 # config/packages/messenger.yaml
 framework:
     messenger:
+        # after retrying, messages will be sent to the "failed" transport
+        failure_transport: failed
         transports:
             async: "%env(MESSENGER_TRANSPORT_DSN)%"
             sync: 'sync://'
