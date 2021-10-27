@@ -2,7 +2,7 @@
 framework:
     messenger:
         # after retrying, messages will be sent to the "failed" transport
-        failure_transport: failed
+        failure_transport: failed_default
         transports:
             async: "%env(MESSENGER_TRANSPORT_DSN)%"
             sync: 'sync://'
@@ -34,6 +34,8 @@ framework:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 options:
                     queue_name: low
+            failed_default: 'doctrine://default?queue_name=failed_default'
+            failed_high_priority: 'doctrine://default?queue_name=failed_high_priority'
 
         routing:
             'App\Message\SmsNotification': async
