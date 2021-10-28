@@ -36,6 +36,10 @@ framework:
                     queue_name: low
             failed_default: 'doctrine://default?queue_name=failed_default'
             failed_high_priority: 'doctrine://default?queue_name=failed_high_priority'
+            my_transport:
+                dsn: "%env(MESSENGER_TRANSPORT_DSN)%"
+                options:
+                    auto_setup: false
 
         routing:
             'App\Message\SmsNotification': async
