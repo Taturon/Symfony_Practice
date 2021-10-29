@@ -13,4 +13,22 @@ class SmsNotificationHandler implements MessageHandlerInterface
     {
         // ... do some work - like sending an SMS message!
     }
+
+    public function handleOtherSmsNotification(OtherSmsNotification $message)
+    {
+        // ...
+    }
+
+    public static function getHandledMessages(): iterable
+    {
+        // handle this message on __invoke
+        yield SmsNotification::class;
+
+        // also handle this message on handleOtherSmsNotification
+        yield OtherSmsNotification::class => [
+            'method' => 'handleOtherSmsNotification',
+            //'priority' => 0,
+            //'bus' => 'messenger.bus.default',
+        ];
+    }
 }
