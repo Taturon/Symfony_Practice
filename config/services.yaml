@@ -49,7 +49,11 @@ services:
     App\Factory:
         tags: [messenger.transport_factory]
     App\MessageHandler\SmsNotificationHandler:
-        tags: [messenger.message_handler]
+        tags:
+            -
+                name: messenger.message_handler
+                # only needed if can't be guessed by type-hint
+                handles: App\Message\SmsNotification
     app.cache.adapter.redis:
         parent: 'cache.adapter.redis'
         tags:
