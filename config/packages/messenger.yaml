@@ -1,6 +1,11 @@
 # config/packages/messenger.yaml
 framework:
     messenger:
+        serializer:
+            default_serializer: messenger.transport.symfony_serializer
+            symfony_serializer:
+                format: json
+                context: { }
         # after retrying, messages will be sent to the "failed" transport
         failure_transport: failed_default
         transports:
@@ -30,6 +35,9 @@ framework:
                     # override all of this with a service that
                     # implements Symfony\Component\Messenger\Retry\RetryStrategyInterface
                     # service: null
+            async_priority_normal:
+                dsn: # ...
+                serializer: messenger.transport.symfony_serializer
             async_priority_low:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 options:
