@@ -48,6 +48,8 @@ services:
             - { name: kernel.event_listener, event: kernel.exception }
     App\Factory:
         tags: [messenger.transport_factory]
+    App\MessageHandler\SmsNotificationHandler:
+        tags: [messenger.message_handler]
     app.cache.adapter.redis:
         parent: 'cache.adapter.redis'
         tags:
