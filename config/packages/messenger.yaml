@@ -1,6 +1,9 @@
 # config/packages/messenger.yaml
 framework:
     messenger:
+        buses:
+            # disable the default middleware
+                default_middleware: false
         serializer:
             default_serializer: messenger.transport.symfony_serializer
             symfony_serializer:
