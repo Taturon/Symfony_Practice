@@ -15,10 +15,9 @@ class DefaultController extends AbstractController
 
     public function index(MessageBusInterface $bus)
     {
-        $bus->dispatch(new SmsNotification('...'), [
-            // wait 5 seconds before processing
+        $bus->dispatch(new Envelope(new SmsNotification('...'), [
             new DelayStamp(5000),
-        ]);
+        ]));
     }
 
     /**
