@@ -3,7 +3,12 @@ framework:
     messenger:
         buses:
             # disable the default middleware
-                default_middleware: false
+            default_middleware: false
+            # and/or add your own
+            middleware:
+                # service ids that implement Symfony\Component\Messenger\Middleware\MiddlewareInterface
+                - 'App\Middleware\MyMiddleware'
+                - 'App\Middleware\AnotherMiddleware'
         serializer:
             default_serializer: messenger.transport.symfony_serializer
             symfony_serializer:
