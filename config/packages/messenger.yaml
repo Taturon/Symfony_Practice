@@ -29,6 +29,7 @@ framework:
                 # service ids that implement Symfony\Component\Messenger\Middleware\MiddlewareInterface
                 - 'App\Middleware\MyMiddleware'
                 - 'App\Middleware\AnotherMiddleware'
+                - router_context
         serializer:
             default_serializer: messenger.transport.symfony_serializer
             symfony_serializer:
