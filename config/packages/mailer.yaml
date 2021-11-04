@@ -4,3 +4,6 @@ framework:
             main: '%env(MAILER_DSN)%'
             alternative: '%env(MAILER_DSN_IMPORTANT)%'
             message_bus: app.another_bus
+        dsn: '%env(MAILER_DSN)%'
+        envelope:
+            sender: 'notifications@example.com'
