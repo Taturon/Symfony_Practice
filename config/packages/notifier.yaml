@@ -13,10 +13,7 @@ framework:
             main: '%env(SLACK_DSN)% || %env(TELEGRAM_DSN)%'
             roundrobin: '%env(SLACK_DSN)% && %env(TELEGRAM_DSN)%'
         channel_policy:
-            # use chat/slack, chat/telegram, sms/twilio or sms/nexmo
-            urgent: ['email']
-            high: ['email']
-            medium: ['email']
-            low: ['email']
+            # Use SMS, Slack and email for urgent notifications
+            urgent: ['sms', 'chat/slack', 'email']
         admin_recipients:
             - { email: admin@example.com }
