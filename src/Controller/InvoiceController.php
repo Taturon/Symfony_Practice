@@ -15,19 +15,12 @@ class InvoiceController extends AbstractController
     {
         // ...
 
-        // Create a Notification that has to be sent
-        // using the "email" channel
-        $notification = (new Notification('New Invoice', ['email']))
-            ->content('You got a new invoice for 15 EUR.');
+        $notification = (new Notification('New Invoice'))
+            ->content('You got a new invoice for 15 EUR.')
+            ->importance(Notification::IMPORTANCE_HIGH);
 
-        // The receiver of the Notification
-        $recipient = new Recipient(
-            $user->getEmail(),
-            $user->getPhonenumber()
-        );
+        $notifier->send($notification, new Recipient('wouter@example.com'));
 
-        // Send the notification to the recipient
-        $notifier->send($notification, $recipient);
 
         // ...
     }
