@@ -17,5 +17,8 @@ framework:
             urgent: ['sms', 'chat/slack', 'email']
             # Use Slack for highly important notifications
             high: ['chat/slack']
+            # Use browser for medium and low notifications
+            medium: ['browser']
+            low: ['browser']
         admin_recipients:
             - { email: admin@example.com }
