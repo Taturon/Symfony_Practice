@@ -8,6 +8,7 @@
         {% endblock %}
     </head>
     <body>
+        {{ object|serialize(format = 'json') }}
         {% block body %}
             <div id="sidebar">
                 {% block sidebar %}
