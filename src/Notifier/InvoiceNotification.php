@@ -2,6 +2,7 @@
 namespace App\Notifier;
 
 use Symfony\Component\Notifier\Message\ChatMessage;
+use Symfony\Component\Notifier\Notification\ChatNotificationInterface;
 use Symfony\Component\Notifier\Notification\Notification;
 use Symfony\Component\Notifier\Recipient\RecipientInterface;
 use Symfony\Component\Notifier\Recipient\SmsRecipientInterface;
