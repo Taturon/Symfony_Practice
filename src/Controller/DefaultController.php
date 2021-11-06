@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 class DefaultController extends AbstractController
 {
 
-    public function index(MessageBusInterface $bus)
+    public function index(MessageBusInterface $bus, SerializerInterface $serializer)
     {
         $bus->dispatch(new Envelope(new SmsNotification('...'), [
             new DelayStamp(5000),
