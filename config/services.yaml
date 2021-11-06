@@ -58,3 +58,6 @@ services:
         parent: 'cache.adapter.redis'
         tags:
             - { name: 'cache.pool', namespace: 'my_custom_namespace' }
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags: [serializer.normalizer]
