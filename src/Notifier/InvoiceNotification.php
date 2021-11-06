@@ -16,6 +16,19 @@ class InvoiceNotification extends Notification
         $this->price = $price;
     }
 
+    public function asChatMessage(RecipientInterface $recipient, string $transport = null): ?ChatMessage
+    {
+        // Add a custom emoji if the message is sent to Slack
+        if ('slack' === $transport) {
+            return (new ChatMessage('You\'re invoiced '.$this->price.' EUR.'))
+                ->emoji('money');
+        }
+
+        // If you return null, the Notifier will create the ChatMessage
+        // based on this notification as it would without this method.
+        return null;
+    }
+
     public function getChannels(RecipientInterface $recipient)
     {
         if (
