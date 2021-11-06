@@ -15,5 +15,7 @@ framework:
         channel_policy:
             # Use SMS, Slack and email for urgent notifications
             urgent: ['sms', 'chat/slack', 'email']
+            # Use Slack for highly important notifications
+            high: ['chat/slack']
         admin_recipients:
             - { email: admin@example.com }
