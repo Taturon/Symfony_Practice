@@ -12,16 +12,24 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Product
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"show_product", "list_product"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"show_product", "list_product"})
      */
     private $name;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Groups({"show_product"})
+     */
+    private $description;
 
     /**
      * @ORM\Column(type="integer")
