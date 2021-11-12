@@ -15,8 +15,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class DefaultController extends AbstractController
 {
 
-    public function index(MessageBusInterface $bus, SerializerInterface $serializer)
+    public function index(
+        MessageBusInterface $bus,
+        SerializerInterface $serializer,
+        TranslatorInterface $translator
+    )
     {
+        $translated = $translator->trans('Symfony is great');
         $bus->dispatch(new Envelope(new SmsNotification('...'), [
             new DelayStamp(5000),
         ]));
