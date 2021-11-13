@@ -10,7 +10,7 @@
     <body>
         {% trans %}Hello %name%{% endtrans %}
         {% trans %}Percent: %percent%%%{% endtrans %}
-        {{ message|trans }}
+        {{ message|trans|raw }}
         {{ message|trans({'%name%': 'Fabien'}, 'app') }}
         {{ object|serialize(format = 'json') }}
         {% block body %}
