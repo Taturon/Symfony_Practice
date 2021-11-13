@@ -11,6 +11,7 @@
         {% trans %}Hello %name%{% endtrans %}
         {% trans %}Percent: %percent%%%{% endtrans %}
         {{ message|trans }}
+        {{ message|trans({'%name%': 'Fabien'}, 'app') }}
         {{ object|serialize(format = 'json') }}
         {% block body %}
             <div id="sidebar">
