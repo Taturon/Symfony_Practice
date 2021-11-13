@@ -1,1 +1,7 @@
-<?= $view['translator']->trans('Symfony is great') ?>
+<?=
+$translator->trans(
+    'Symfony is great',
+    [],
+    'messages',
+    'fr_FR'
+);
