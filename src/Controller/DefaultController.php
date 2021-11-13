@@ -21,7 +21,7 @@ class DefaultController extends AbstractController
         TranslatorInterface $translator
     )
     {
-        $translated = $translator->trans('Symfony is great');
+        $translated = $translator->trans('symfony.great');
         $bus->dispatch(new Envelope(new SmsNotification('...'), [
             new DelayStamp(5000),
         ]));
