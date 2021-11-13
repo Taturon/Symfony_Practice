@@ -11,6 +11,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\DelayStamp;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Translation\TranslatableMessage;
 
 class DefaultController extends AbstractController
 {
