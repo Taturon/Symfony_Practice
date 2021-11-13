@@ -22,7 +22,7 @@ class DefaultController extends AbstractController
         TranslatorInterface $translator
     )
     {
-        $message = new TranslatableMessage('Symfony is great!');
+        $status = new TranslatableMessage('order.status', ['%status%' => $order->getStatus()], 'store');
         $bus->dispatch(new Envelope(new SmsNotification('...'), [
             new DelayStamp(5000),
         ]));
