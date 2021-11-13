@@ -9,6 +9,7 @@
     </head>
     <body>
         {% trans %}Hello %name%{% endtrans %}
+        {% trans %}Percent: %percent%%%{% endtrans %}
         {{ object|serialize(format = 'json') }}
         {% block body %}
             <div id="sidebar">
