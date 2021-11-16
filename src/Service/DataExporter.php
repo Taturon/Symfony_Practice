@@ -18,6 +18,8 @@ class DataExporter
         // the argument is the name of the "profiling event"
         $this->stopwatch->start('export-data');
 
+        dump((string) $this->stopwatch->getEvent());
+
         // ...do things to export data...
 
         // reset the stopwatch to delete all the data measured so far
