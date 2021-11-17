@@ -1,5 +1,11 @@
 {% extends 'blog/layout.html.twig' %}
 
+{% stopwatch 'render-blog-posts' %}
+    {% for post in blog_posts %}
+        {# ... #}
+    {% endfor %}
+{% endstopwatch %}
+
 {% block title %}Blog Index{% endblock %}
 
 {% block page_contents %}
