@@ -16,7 +16,7 @@ class DataExporter
     public function export()
     {
         // the argument is the name of the "profiling event"
-        $this->stopwatch->start('export-data');
+        $this->stopwatch->start('export-data', 'export');
 
         dump((string) $this->stopwatch->getEvent());
 
