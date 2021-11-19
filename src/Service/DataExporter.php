@@ -20,11 +20,11 @@ class DataExporter
 
         dump((string) $this->stopwatch->getEvent());
 
-        // ...do things to export data...
+        foreach ($records as $record) {
+            // ... some code goes here
+            $this->stopwatch->lap('process-data-records');
+        }
 
-        // reset the stopwatch to delete all the data measured so far
-        // $this->stopwatch->reset();
-
-        $this->stopwatch->stop('export-data');
+        $event = $this->stopwatch->stop('process-data-records');
     }
 }
