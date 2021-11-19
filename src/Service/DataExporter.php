@@ -27,5 +27,8 @@ class DataExporter
 
         $event = $this->stopwatch->stop('process-data-records');
         $event->getPeriods();
+
+        $this->stopwatch->openSection();
+
     }
 }
