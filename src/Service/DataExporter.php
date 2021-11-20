@@ -29,6 +29,7 @@ class DataExporter
         $event->getPeriods();
 
         $this->stopwatch->openSection();
-
+        $this->stopwatch->start('validating-file', 'validation');
+        $this->stopwatch->stopSection('parsing');
     }
 }
