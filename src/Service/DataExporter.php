@@ -31,5 +31,7 @@ class DataExporter
         $this->stopwatch->openSection();
         $this->stopwatch->start('validating-file', 'validation');
         $this->stopwatch->stopSection('parsing');
+
+        $events = $this->stopwatch->getSectionEvents('parsing');
     }
 }
