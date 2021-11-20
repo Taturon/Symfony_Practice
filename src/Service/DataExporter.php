@@ -33,5 +33,9 @@ class DataExporter
         $this->stopwatch->stopSection('parsing');
 
         $events = $this->stopwatch->getSectionEvents('parsing');
+
+        $this->stopwatch->openSection('parsing');
+        $this->stopwatch->start('processing-file');
+        $this->stopwatch->stopSection('parsing');
     }
 }
